@@ -189,7 +189,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ReferenceResolution: {x: 2000, y: 2000}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -539,8 +539,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83b8b4ae6219a0c4fa4ff30b32c3ee9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  maxHealth: 50
 --- !u!1 &591500164
 GameObject:
   m_ObjectHideFlags: 0
