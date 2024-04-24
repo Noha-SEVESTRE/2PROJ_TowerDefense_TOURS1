@@ -3079,13 +3079,17 @@ PrefabInstance:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5957894764421069171, guid: 4ddb6a8d866e596418a45ea6515183a9, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
+    - target: {fileID: 8118302838349169901, guid: a9956a79b1ac52843b76139a079faf20, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 519420031}
+    - target: {fileID: 8578560477181500048, guid: a9956a79b1ac52843b76139a079faf20, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1.733
       objectReference: {fileID: 0}
-    - target: {fileID: 5957894764421069171, guid: 4ddb6a8d866e596418a45ea6515183a9, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
+    - target: {fileID: 8578560477181500048, guid: a9956a79b1ac52843b76139a079faf20, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.857
       objectReference: {fileID: 0}
     - target: {fileID: 5957894764421069171, guid: 4ddb6a8d866e596418a45ea6515183a9, type: 3}
       propertyPath: m_LocalRotation.z
