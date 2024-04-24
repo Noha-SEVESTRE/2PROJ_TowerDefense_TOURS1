@@ -2463,6 +2463,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: preMelee
       objectReference: {fileID: 0}
+<<<<<<< Updated upstream
     - target: {fileID: 8118302838349169901, guid: a9956a79b1ac52843b76139a079faf20, type: 3}
       propertyPath: m_Camera
       value: 
@@ -2474,6 +2475,15 @@ PrefabInstance:
     - target: {fileID: 8578560477181500048, guid: a9956a79b1ac52843b76139a079faf20, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0.857
+=======
+    - target: {fileID: 8874425336524546448, guid: 5fc61624fd89f7546b8a7dea109cab6c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.3111405
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874425336524546448, guid: 5fc61624fd89f7546b8a7dea109cab6c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.67056
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 9111232942754662564, guid: a9956a79b1ac52843b76139a079faf20, type: 3}
       propertyPath: m_SizeDelta.x
