@@ -348,8 +348,7 @@ GameObject:
   - component: {fileID: 3548401180358432309}
   - component: {fileID: 7582231708669860738}
   - component: {fileID: 5558603622330905060}
-  - component: {fileID: 1611309024751777799}
-  - component: {fileID: 4033443519856412680}
+  - component: {fileID: 2207758088491948881}
   m_Layer: 0
   m_Name: preAntiArmor
   m_TagString: Untagged
@@ -446,7 +445,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.0037804, y: 1.2004718}
   m_EdgeRadius: 0
---- !u!114 &1611309024751777799
+--- !u!114 &2207758088491948881
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -455,21 +454,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7145292500361699002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b20bf47eb2a69c14da66b713b9b02592, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e280423dba91c647b25dc21e33627b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  preMeleeRb: {fileID: 7582231708669860738}
+  AntiArmorRb: {fileID: 7582231708669860738}
   speed: 1
---- !u!114 &4033443519856412680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7145292500361699002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28728890608f80a49b94dfd1f228d72d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 25

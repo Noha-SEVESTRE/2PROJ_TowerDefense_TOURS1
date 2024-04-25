@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 6829032959113872971}
   - component: {fileID: 2730979257703721439}
   - component: {fileID: 1305528603831168975}
-  - component: {fileID: 3827540407932947925}
-  - component: {fileID: 3020704953917122627}
+  - component: {fileID: 5840451277420537594}
   m_Layer: 0
   m_Name: preMelee
   m_TagString: Untagged
@@ -109,7 +108,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.39096284, y: 0.9686041}
   m_EdgeRadius: 0
---- !u!114 &3827540407932947925
+--- !u!114 &5840451277420537594
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,24 +117,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8049550376995939991}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b20bf47eb2a69c14da66b713b9b02592, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  preMeleeRb: {fileID: 2730979257703721439}
-  speed: 1
---- !u!114 &3020704953917122627
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8049550376995939991}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28728890608f80a49b94dfd1f228d72d, type: 3}
+  m_Script: {fileID: 11500000, guid: eafee40302f33b44a918243fc8c04031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 25
+  MeleeRb: {fileID: 2730979257703721439}
+  speed: 1
 --- !u!1 &8149820648945968096
 GameObject:
   m_ObjectHideFlags: 0
