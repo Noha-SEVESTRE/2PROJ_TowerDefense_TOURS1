@@ -4,8 +4,8 @@ public class ScrollWithMouse : MonoBehaviour
 {
     public float scrollSpeed = 0.01f; 
     public float scrollThreshold = 0.05f; 
-    public float minX = -6.2f; 
-    public float maxX = 6.2f; 
+    public float minX = -9; 
+    public float maxX = 9; 
     public float minZ = -10f; 
     public float maxZ = 10f; 
 
