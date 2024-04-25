@@ -1176,14 +1176,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!222 &818530068
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 818530065}
-  m_CullTransparentMesh: 1
 --- !u!1 &919609656 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8049550376995939991, guid: a9956a79b1ac52843b76139a079faf20, type: 3}
