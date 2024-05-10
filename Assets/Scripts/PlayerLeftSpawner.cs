@@ -7,6 +7,7 @@ public class PlayerLeftSpawner : MonoBehaviour
     public GameObject meleePrefab; // Référence au prefab de l'unité melee
     public GameObject antiArmorPrefab;
     public GameObject archerPrefab;
+    public GameObject tankPrefab;
     public Transform spawnPoint;
 
     private bool canSpawn = true; // variable pour vérifier si le spawn est possible
@@ -89,5 +90,10 @@ public class PlayerLeftSpawner : MonoBehaviour
 
         PlayerStats.money -= archerScript.cost;
         SpawnUnit(archerPrefab);
+    }
+
+    public void SpawnTank()
+    {
+        SpawnUnit(tankPrefab);
     }
 }
