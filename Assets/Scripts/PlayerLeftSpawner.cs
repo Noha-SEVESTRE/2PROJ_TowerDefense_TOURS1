@@ -7,6 +7,7 @@ public class PlayerLeftSpawner : MonoBehaviour
     public GameObject melee;
     public GameObject antiarmor;
     public GameObject archer;
+    public GameObject tank;
     public Transform spawnPoint;
 
     private bool canSpawn = true; // variable pour vérifier si le spawn est possible
@@ -43,5 +44,10 @@ public class PlayerLeftSpawner : MonoBehaviour
     public void SpawnArcher()
     {
         SpawnUnit(archer);
+    }
+
+    public void SpawnTank()
+    {
+        SpawnUnit(tank);
     }
 }
