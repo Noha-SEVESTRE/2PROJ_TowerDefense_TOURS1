@@ -8,6 +8,8 @@ public class Melee : MonoBehaviour
     public Rigidbody2D MeleeRb;
     public float speed;
 
+    public int cost = 100;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         HealthBar healthBar = collision.gameObject.GetComponent<HealthBar>();
