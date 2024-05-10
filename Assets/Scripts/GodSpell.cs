@@ -6,13 +6,13 @@ public class GodSpell : MonoBehaviour
     public GameObject meteoritePrefab;
     public Transform spawnPoint;
     public int numberOfMeteorites = 15;
-    public float spawnInterval = 0.5f; // Intervalle entre chaque spawn
+    public float spawnInterval = 0.5f; 
 
     private bool canSpawn = true;
 
     private IEnumerator ResetSpawnCooldown()
     {
-        yield return new WaitForSeconds(spawnInterval); // Attendre l'intervalle spécifié
+        yield return new WaitForSeconds(spawnInterval); 
         canSpawn = true;
     }
 
@@ -21,7 +21,7 @@ public class GodSpell : MonoBehaviour
         for (int i = 0; i < numberOfMeteorites; i++)
         {
             float spawnX = Random.Range(-12f, 10f);
-            float spawnY = 1f;
+            float spawnY = 2f;
 
             Vector3 spawnPosition = new Vector3(spawnX, spawnY);
 
@@ -29,18 +29,18 @@ public class GodSpell : MonoBehaviour
 
             Instantiate(meteoritePrefab, spawnPosition, spawnRotation);
 
-            yield return new WaitForSeconds(spawnInterval); // Attendre avant de spawner la prochaine météorite
+            yield return new WaitForSeconds(spawnInterval); 
         }
 
-        canSpawn = true; // Réinitialiser le drapeau de spawn
+        canSpawn = true; 
     }
 
     public void ActivateGodSpell()
     {
         if (canSpawn)
         {
-            StartCoroutine(SpawnMeteoritesOneByOne()); // Lancer la coroutine de spawn
-            canSpawn = false; // Désactiver le spawn jusqu'à la fin de la séquence
+            StartCoroutine(SpawnMeteoritesOneByOne()); 
+            canSpawn = false; 
         }
     }
 }
