@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlayerLeftSpawner : MonoBehaviour
 {
-    public GameObject melee;
-    public GameObject antiarmor;
-    public GameObject archer;
-    public GameObject tank;
+    public GameObject meleePrefab; // Référence au prefab de l'unité melee
+    public GameObject antiArmorPrefab;
+    public GameObject archerPrefab;
+    public GameObject tankPrefab;
     public Transform spawnPoint;
 
     private bool canSpawn = true; // variable pour vérifier si le spawn est possible
@@ -22,32 +22,78 @@ public class PlayerLeftSpawner : MonoBehaviour
     // Fonction pour instancier une unité avec un cooldown
     private void SpawnUnit(GameObject unit)
     {
-        if (canSpawn)
-        {
-            Instantiate(unit, spawnPoint.position, Quaternion.identity);
-            canSpawn = false; // désactiver le spawn temporairement
-            StartCoroutine(ResetSpawnCooldown()); // lancer le cooldown
-        }
+        Instantiate(unit, spawnPoint.position, Quaternion.identity);
+        canSpawn = false; // désactiver le spawn temporairement
+        StartCoroutine(ResetSpawnCooldown()); // lancer le cooldown
     }
 
     // Méthodes pour instancier chaque type d'unité
     public void SpawnMelee()
     {
-        SpawnUnit(melee);
+        if (!canSpawn)
+        {
+            Debug.Log("Cooldown pas terminé");
+            return;
+        }
+
+        Melee meleeScript = meleePrefab.GetComponent<Melee>(); // Obtenir la référence à la classe Melee
+        Debug.Log("Money before spawning: " + PlayerStats.money);
+
+        if (PlayerStats.money < meleeScript.cost)
+        {
+            Debug.Log("Pas assez d'argent pour cette unité");
+            return;
+        }
+
+        PlayerStats.money -= meleeScript.cost;
+        SpawnUnit(meleePrefab);
     }
+
 
     public void SpawnAntiArmor()
     {
-        SpawnUnit(antiarmor);
+        if (!canSpawn)
+        {
+            Debug.Log("Cooldown pas terminé");
+            return;
+        }
+
+        AntiArmor antiArmorScript = antiArmorPrefab.GetComponent<AntiArmor>(); // Obtenir la référence à la classe Melee
+        Debug.Log("Money before spawning: " + PlayerStats.money);
+        
+        if (PlayerStats.money < antiArmorScript.cost)
+        {
+            Debug.Log("Pas assez d'argent pour cette unité");
+            return;
+        }
+
+        PlayerStats.money -= antiArmorScript.cost;
+        SpawnUnit(antiArmorPrefab);
     }
 
     public void SpawnArcher()
     {
-        SpawnUnit(archer);
+        if (!canSpawn)
+        {
+            Debug.Log("Cooldown pas terminé");
+            return;
+        }
+
+        Archer archerScript = archerPrefab.GetComponent<Archer>(); // Obtenir la référence à la classe Melee
+        Debug.Log("Money before spawning: " + PlayerStats.money);
+        
+        if (PlayerStats.money < archerScript.cost)
+        {
+            Debug.Log("Pas assez d'argent pour cette unité");
+            return;
+        }
+
+        PlayerStats.money -= archerScript.cost;
+        SpawnUnit(archerPrefab);
     }
 
     public void SpawnTank()
     {
-        SpawnUnit(tank);
+        SpawnUnit(tankPrefab);
     }
 }
