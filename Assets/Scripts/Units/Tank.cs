@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tank : MonoBehaviour
+public class Tank : MonoBehaviour, IDamageable
 {
     public int damage = 20;
+    public int maxHealth = 400;
+    public int MaxHealth => maxHealth;
     public Rigidbody2D TankRb;
     public float speed;
 

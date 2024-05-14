@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AntiArmor : MonoBehaviour
+public class AntiArmor : MonoBehaviour, IDamageable
 {
     public int damage = 40;
+    public int maxHealth = 100;
+    public int MaxHealth => maxHealth;
     public Rigidbody2D AntiArmorRb;
     public float speed;
 

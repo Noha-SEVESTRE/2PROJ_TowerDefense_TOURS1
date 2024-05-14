@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Melee : MonoBehaviour
+public class Melee : MonoBehaviour, IDamageable
 {
     public int damage = 25;
+    public int maxHealth = 200;
+    public int MaxHealth => maxHealth;
     public Rigidbody2D MeleeRb;
     public float speed;
 
