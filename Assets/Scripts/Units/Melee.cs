@@ -58,19 +58,29 @@ public class Melee : MonoBehaviour
     }
 
     IEnumerator DealDamagePeriodically(GameObject target)
+{
+    while (true) // Boucle infinie pour infliger des dégâts périodiquement
     {
-        while (true) // Boucle infinie pour infliger des dégâts périodiquement
+        if (target != null) // Vérifier si le GameObject cible est null
         {
             HealthBar healthBar = target.GetComponent<HealthBar>();
             if (healthBar != null)
             {
                 healthBar.UpdateHealth(damage);
             }
-
-            // Attendre jusqu'à ce que le temps de dégâts soit écoulé
-            yield return new WaitForSeconds(damageInterval);
         }
+        else
+        {
+            // Si le GameObject cible a été détruit, arrêter la coroutine
+            StopDamaging();
+            yield break; // Sortir de la coroutine
+        }
+
+        // Attendre jusqu'à ce que le temps de dégâts soit écoulé
+        yield return new WaitForSeconds(damageInterval);
     }
+}
+
 
     // Update is called 50x per second
     void FixedUpdate()

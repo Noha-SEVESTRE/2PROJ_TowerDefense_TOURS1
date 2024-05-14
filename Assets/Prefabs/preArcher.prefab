@@ -121,9 +121,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 396e282c9cf1d83428eced66639eee04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArrowPrefab: {fileID: 2702935686020685169, guid: 43537228fdebae74e88eef73ed46e485, type: 3}
+  coolDown: 2.5
   ArcherRb: {fileID: 7161653741816709522}
   speed: 1
   cost: 125
+  raycastDistance: 5
 --- !u!114 &3745278642164949841
 MonoBehaviour:
   m_ObjectHideFlags: 0
