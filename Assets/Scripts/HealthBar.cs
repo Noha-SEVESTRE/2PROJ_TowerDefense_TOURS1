@@ -18,21 +18,21 @@ public class HealthBar : MonoBehaviour
             UpdateUi();
         }
     }
-    
-    void Update()
-    {
-        if(currentHealth <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
 
     // Méthode pour mettre à jour la barre de vie
     public void UpdateHealth(int damage)
     {
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, GetComponent<IDamageable>().MaxHealth); // Garantit que la vie ne dépasse pas les limites
+        
+        // Met à jour l'UI après avoir ajusté la santé
         UpdateUi();
+
+        // Vérifie si la santé est inférieure ou égale à zéro pour supprimer l'objet
+        if (currentHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Méthode pour mettre à jour l'apparence de la barre de vie
