@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Archer : MonoBehaviour
+public class Archer : MonoBehaviour, IDamageable
 {
     public GameObject ArrowPrefab;
     public float coolDown = 2.5f;
     private float timer;
     public Rigidbody2D ArcherRb;
     public float speed;
+    public int maxHealth = 75;
+    public int MaxHealth => maxHealth;
     public int cost = 125;
 
     // Ajout d'une variable pour définir la portée du raycast

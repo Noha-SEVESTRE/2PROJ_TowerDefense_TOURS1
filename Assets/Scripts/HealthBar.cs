@@ -7,16 +7,18 @@ public class HealthBar : MonoBehaviour
 {
     public Gradient gradient;
     public Image Health;
-
-    public int maxHealth = 100;
     private float currentHealth; // Utilisation de float pour une transition en douceur
 
     private void Start()
     {
-        currentHealth = maxHealth;
-        UpdateUi();
+        IDamageable damageable = GetComponent<IDamageable>();
+        if (damageable != null)
+        {
+            currentHealth = damageable.MaxHealth;
+            UpdateUi();
+        }
     }
-
+    
     void Update()
     {
         if(currentHealth <= 0)
@@ -29,14 +31,14 @@ public class HealthBar : MonoBehaviour
     public void UpdateHealth(int damage)
     {
         currentHealth -= damage;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth); // Garantit que la vie ne dépasse pas les limites
+        currentHealth = Mathf.Clamp(currentHealth, 0, GetComponent<IDamageable>().MaxHealth); // Garantit que la vie ne dépasse pas les limites
         UpdateUi();
     }
 
     // Méthode pour mettre à jour l'apparence de la barre de vie
     void UpdateUi()
     {
-        float fillAmount = currentHealth / maxHealth;
+        float fillAmount = currentHealth / GetComponent<IDamageable>().MaxHealth;
         Health.fillAmount = fillAmount;
         Health.color = gradient.Evaluate(fillAmount);
     }
