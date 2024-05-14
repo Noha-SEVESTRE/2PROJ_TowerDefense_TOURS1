@@ -22,7 +22,8 @@ public class PlayerLeftSpawner : MonoBehaviour
     // Fonction pour instancier une unité avec un cooldown
     private void SpawnUnit(GameObject unit)
     {
-        Instantiate(unit, spawnPoint.position, Quaternion.identity);
+        GameObject spawnedUnit = Instantiate(unit, spawnPoint.position, Quaternion.identity);
+        spawnedUnit.tag = spawnPoint.tag; // Assigner le tag du spawnPoint à l'unité générée
         canSpawn = false; // désactiver le spawn temporairement
         StartCoroutine(ResetSpawnCooldown()); // lancer le cooldown
     }

@@ -148,7 +148,7 @@ Transform:
   m_GameObject: {fileID: 3101264}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13, y: -1.7, z: 0}
+  m_LocalPosition: {x: -13, y: -1.67056, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -344,6 +344,14 @@ PrefabInstance:
     - target: {fileID: 91793672397175711, guid: 4ddb6a8d866e596418a45ea6515183a9, type: 3}
       propertyPath: m_Name
       value: preArcher
+      objectReference: {fileID: 0}
+    - target: {fileID: 91793672397175711, guid: 4ddb6a8d866e596418a45ea6515183a9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 91793672397175711, guid: 4ddb6a8d866e596418a45ea6515183a9, type: 3}
+      propertyPath: m_TagString
+      value: Player1
       objectReference: {fileID: 0}
     - target: {fileID: 5957894764421069171, guid: 4ddb6a8d866e596418a45ea6515183a9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1625,6 +1633,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2207758088491948881, guid: dc0fe14b6ca512148820dd141fbc77a6, type: 3}
+      propertyPath: damageInterval
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3548401180358432309, guid: dc0fe14b6ca512148820dd141fbc77a6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.96
@@ -1668,6 +1680,10 @@ PrefabInstance:
     - target: {fileID: 7145292500361699002, guid: dc0fe14b6ca512148820dd141fbc77a6, type: 3}
       propertyPath: m_Name
       value: preAntiArmor
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145292500361699002, guid: dc0fe14b6ca512148820dd141fbc77a6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7145292500361699002, guid: dc0fe14b6ca512148820dd141fbc77a6, type: 3}
       propertyPath: m_TagString
@@ -1828,7 +1844,7 @@ GameObject:
   - component: {fileID: 1048399701}
   m_Layer: 0
   m_Name: base_pre1
-  m_TagString: Untagged
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3637,6 +3653,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: preMelee
       objectReference: {fileID: 0}
+    - target: {fileID: 8049550376995939991, guid: a9956a79b1ac52843b76139a079faf20, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8049550376995939991, guid: a9956a79b1ac52843b76139a079faf20, type: 3}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3656,7 +3680,7 @@ GameObject:
   - component: {fileID: 1953841079}
   m_Layer: 0
   m_Name: base_pre2
-  m_TagString: Untagged
+  m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3909,6 +3933,10 @@ PrefabInstance:
     - target: {fileID: 1682748104933154984, guid: dd3a26956f73a184d9c09066338060ba, type: 3}
       propertyPath: m_Name
       value: preTank
+      objectReference: {fileID: 0}
+    - target: {fileID: 1682748104933154984, guid: dd3a26956f73a184d9c09066338060ba, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7762549031375987907, guid: dd3a26956f73a184d9c09066338060ba, type: 3}
       propertyPath: m_LocalPosition.x

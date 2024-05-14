@@ -180,7 +180,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.7401519, y: -1.9862514}
+  m_Offset: {x: -0.7401519, y: -1.952817}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -191,7 +191,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6745691, y: 0.71896935}
+  m_Size: {x: 1.6745691, y: 0.5718565}
   m_EdgeRadius: 0
 --- !u!114 &7104616477226510590
 MonoBehaviour:
@@ -205,8 +205,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df3fd19f650df3d40bfc838b4ba9b3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 20
   TankRb: {fileID: 1998354532280197860}
   speed: 1
+  cost: 400
+  damageInterval: 1.5
 --- !u!114 &2217790128787997309
 MonoBehaviour:
   m_ObjectHideFlags: 0

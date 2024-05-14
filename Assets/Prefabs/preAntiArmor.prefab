@@ -180,7 +180,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.9113269, y: -1.7396369}
+  m_Offset: {x: -0.9113269, y: -1.720506}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -191,7 +191,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.0037804, y: 1.2004718}
+  m_Size: {x: 2.0037804, y: 0.95814574}
   m_EdgeRadius: 0
 --- !u!114 &2207758088491948881
 MonoBehaviour:
@@ -205,9 +205,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e280423dba91c647b25dc21e33627b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 40
   AntiArmorRb: {fileID: 7582231708669860738}
   speed: 1
   cost: 200
+  damageInterval: 2
 --- !u!114 &5045214329619327952
 MonoBehaviour:
   m_ObjectHideFlags: 0
