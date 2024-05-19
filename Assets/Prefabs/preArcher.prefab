@@ -125,8 +125,10 @@ MonoBehaviour:
   coolDown: 2.5
   ArcherRb: {fileID: 7161653741816709522}
   speed: 1
+  maxHealth: 75
   cost: 125
   raycastDistance: 5
+  raycastOffset: {x: -1.1, y: -1.9}
 --- !u!114 &3745278642164949841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,7 +172,6 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   Health: {fileID: 2838945497896962598}
-  maxHealth: 100
 --- !u!1 &3319341812628256551
 GameObject:
   m_ObjectHideFlags: 0

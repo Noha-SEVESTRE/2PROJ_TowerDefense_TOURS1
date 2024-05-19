@@ -77,6 +77,16 @@ public class AntiArmor : MonoBehaviour, IDamageable
     // Update is called 50x per second
     void FixedUpdate()
     {
-        AntiArmorRb.velocity = Vector2.right * speed;
+        // Ajuster la direction et l'échelle en fonction du tag
+        if (CompareTag("Player1"))
+        {
+            transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+            AntiArmorRb.velocity = Vector2.right * speed;
+        }
+        else if (CompareTag("Player2"))
+        {
+            transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+            AntiArmorRb.velocity = Vector2.left * speed;
+        }
     }
 }
