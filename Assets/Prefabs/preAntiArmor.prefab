@@ -206,6 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 40
+  maxHealth: 125
   AntiArmorRb: {fileID: 7582231708669860738}
   speed: 1
   cost: 200
@@ -253,7 +254,6 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   Health: {fileID: 7831425948741692282}
-  maxHealth: 100
 --- !u!1001 &3036438871563568726
 PrefabInstance:
   m_ObjectHideFlags: 0
