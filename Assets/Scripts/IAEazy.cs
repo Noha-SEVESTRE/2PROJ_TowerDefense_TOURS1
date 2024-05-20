@@ -11,7 +11,7 @@ public class IAEazy : MonoBehaviour
     public Transform spawnPoint;
 
     private bool canSpawn = true;
-    private float spawnInterval = 2.0f; // Intervalle de spawn de l'IA
+    private float spawnInterval = 3.0f; //A revoir?
     private float nextSpawnTime;
 
     private void Start()

@@ -83,6 +83,20 @@ public class Melee : MonoBehaviour, IDamageable
         }
     }
 
+     private void OnDestroy()
+    {
+        if (CompareTag("Player1"))
+        {
+            IAStats.AddMoney(120);
+            IAStats.AddExp(140);
+        }
+        else if (CompareTag("Player2"))
+        {
+            PlayerStats.AddMoney(120);
+            PlayerStats.AddExp(140);
+        }
+    }
+
     // Update is called 50x per second
     void FixedUpdate()
     {

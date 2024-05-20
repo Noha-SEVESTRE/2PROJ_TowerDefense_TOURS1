@@ -74,6 +74,20 @@ public class AntiArmor : MonoBehaviour, IDamageable
         }
     }
 
+    private void OnDestroy()
+    {
+        if (CompareTag("Player1"))
+        {
+            IAStats.AddMoney(220);
+            IAStats.AddExp(240);
+        }
+        else if (CompareTag("Player2"))
+        {
+            PlayerStats.AddMoney(220);
+            PlayerStats.AddExp(240);
+        }
+    }
+
     // Update is called 50x per second
     void FixedUpdate()
     {
