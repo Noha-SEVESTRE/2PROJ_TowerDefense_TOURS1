@@ -106,4 +106,18 @@ public class Archer : MonoBehaviour, IDamageable
             timer = coolDown;
         }
     }
+
+    private void OnDestroy()
+    {
+        if (CompareTag("Player1"))
+        {
+            IAStats.AddMoney(145);
+            IAStats.AddExp(165);
+        }
+        else if (CompareTag("Player2"))
+        {
+            PlayerStats.AddMoney(145);
+            PlayerStats.AddExp(165);
+        }
+    }
 }

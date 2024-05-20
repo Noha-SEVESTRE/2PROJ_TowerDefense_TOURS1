@@ -74,6 +74,20 @@ public class Tank : MonoBehaviour, IDamageable
         }
     }
 
+    private void OnDestroy()
+    {
+        if (CompareTag("Player1"))
+        {
+            IAStats.AddMoney(420);
+            IAStats.AddExp(440);
+        }
+        else if (CompareTag("Player2"))
+        {
+            PlayerStats.AddMoney(420);
+            PlayerStats.AddExp(440);
+        }
+    }
+
     // Update is called 50x per second
     void FixedUpdate()
     {

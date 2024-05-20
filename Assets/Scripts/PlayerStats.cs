@@ -22,4 +22,14 @@ public class PlayerStats : MonoBehaviour
     {
         money -= amount;
     }
+
+    public static void AddMoney(int amount)
+    {
+        money += amount;
+    }
+
+    public static void AddExp(int amount)
+    {
+        exp += amount;
+    }
 }
