@@ -333,6 +333,37 @@ Transform:
   - {fileID: 1898700822}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &200661887
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 200661888}
+  m_Layer: 0
+  m_Name: IAHardManagement
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &200661888
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200661887}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.0032969713, y: 0.9964686, z: -0.069272764}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &207366585
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -602,8 +633,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 262257704}
-  - component: {fileID: 262257705}
   - component: {fileID: 262257706}
+  - component: {fileID: 262257705}
   m_Layer: 0
   m_Name: IAEasyManagement
   m_TagString: Untagged
@@ -2369,9 +2400,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IAEasyManagement: {fileID: 262257703}
-  IANormalManagement: {fileID: 0}
-  IAHardManagement: {fileID: 0}
-  IAHellManagement: {fileID: 0}
+  IANormalManagement: {fileID: 1731515871}
+  IAHardManagement: {fileID: 200661887}
+  IAHellManagement: {fileID: 1206194025}
 --- !u!4 &1032708135
 Transform:
   m_ObjectHideFlags: 0
@@ -3186,6 +3217,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1177792731}
   m_CullTransparentMesh: 1
+--- !u!1 &1206194025
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1206194026}
+  m_Layer: 0
+  m_Name: IAHellManagement
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1206194026
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206194025}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.0032969713, y: 0.9964686, z: -0.069272764}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1335693171
 GameObject:
   m_ObjectHideFlags: 0
@@ -3651,13 +3713,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1731515873}
   - component: {fileID: 1731515872}
+  - component: {fileID: 1731515874}
   m_Layer: 0
   m_Name: 'IANormalManagement '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1731515872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3670,8 +3733,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7c3e99a3d6401f478c37e52a46e872c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMoney: 2500
-  startExp: 1000
+  startMoney: 2700
+  startExp: 1200
 --- !u!4 &1731515873
 Transform:
   m_ObjectHideFlags: 0
@@ -3687,6 +3750,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1731515874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731515871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4bcd98cc29c85a4782d3b3d7033d006, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meleePrefab: {fileID: 8049550376995939991, guid: a9956a79b1ac52843b76139a079faf20, type: 3}
+  antiArmorPrefab: {fileID: 7145292500361699002, guid: dc0fe14b6ca512148820dd141fbc77a6, type: 3}
+  archerPrefab: {fileID: 91793672397175711, guid: 4ddb6a8d866e596418a45ea6515183a9, type: 3}
+  tankPrefab: {fileID: 1682748104933154984, guid: dd3a26956f73a184d9c09066338060ba, type: 3}
+  spawnPoint: {fileID: 211907784}
 --- !u!1 &1765891540
 GameObject:
   m_ObjectHideFlags: 0
@@ -5316,4 +5396,6 @@ SceneRoots:
   - {fileID: 759711166334096330}
   - {fileID: 262257704}
   - {fileID: 1731515873}
+  - {fileID: 200661888}
+  - {fileID: 1206194026}
   - {fileID: 1032708135}
