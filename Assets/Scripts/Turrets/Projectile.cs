@@ -3,7 +3,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     private Transform target;
-    public float speed = 10f;
+    public float speed = 15f;
     public int damage = 25;
     private float timer;
 
