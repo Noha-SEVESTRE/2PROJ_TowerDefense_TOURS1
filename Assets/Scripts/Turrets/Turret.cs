@@ -27,6 +27,11 @@ public class Turret : MonoBehaviour
         foreach (GameObject enemy in enemies)
         {
             BoxCollider2D enemyCollider = enemy.GetComponent<BoxCollider2D>();
+            if (enemyCollider == null)
+            {
+                continue; // Passe à l'itération suivante si l'ennemi n'a pas de BoxCollider2D
+            }
+
             Vector3 targetPosition = enemyCollider.bounds.center;
 
             float distanceToEnemy = Vector3.Distance(playerPosition, targetPosition);
