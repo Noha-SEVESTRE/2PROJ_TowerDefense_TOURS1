@@ -206,6 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
+  maxHealth: 150
   TankRb: {fileID: 1998354532280197860}
   speed: 1
   cost: 400
@@ -253,7 +254,6 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   Health: {fileID: 6136181066729221383}
-  maxHealth: 100
 --- !u!1001 &1415627078726123563
 PrefabInstance:
   m_ObjectHideFlags: 0

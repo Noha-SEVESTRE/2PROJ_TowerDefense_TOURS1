@@ -59,7 +59,7 @@ public class PlayerLeftSpawner : MonoBehaviour
             return;
         }
 
-        AntiArmor antiArmorScript = antiArmorPrefab.GetComponent<AntiArmor>(); // Obtenir la référence à la classe Melee
+        AntiArmor antiArmorScript = antiArmorPrefab.GetComponent<AntiArmor>(); // Obtenir la référence à la classe AntiArmor
         Debug.Log("Money before spawning: " + PlayerStats.money);
         
         if (PlayerStats.money < antiArmorScript.cost)
@@ -80,7 +80,7 @@ public class PlayerLeftSpawner : MonoBehaviour
             return;
         }
 
-        Archer archerScript = archerPrefab.GetComponent<Archer>(); // Obtenir la référence à la classe Melee
+        Archer archerScript = archerPrefab.GetComponent<Archer>(); // Obtenir la référence à la classe Archer
         Debug.Log("Money before spawning: " + PlayerStats.money);
         
         if (PlayerStats.money < archerScript.cost)
@@ -95,6 +95,22 @@ public class PlayerLeftSpawner : MonoBehaviour
 
     public void SpawnTank()
     {
+        if (!canSpawn)
+        {
+            Debug.Log("Cooldown pas terminé");
+            return;
+        }
+
+        Tank tankScript = tankPrefab.GetComponent<Tank>(); // Obtenir la référence à la classe Tank
+        Debug.Log("Money before spawning: " + PlayerStats.money);
+        
+        if (PlayerStats.money < tankScript.cost)
+        {
+            Debug.Log("Pas assez d'argent pour cette unité");
+            return;
+        }
+
+        PlayerStats.money -= tankScript.cost;
         SpawnUnit(tankPrefab);
     }
 }

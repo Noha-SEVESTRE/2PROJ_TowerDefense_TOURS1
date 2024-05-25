@@ -74,9 +74,33 @@ public class AntiArmor : MonoBehaviour, IDamageable
         }
     }
 
+    private void OnDestroy()
+    {
+        if (CompareTag("Player1"))
+        {
+            IAStats.AddMoney(220);
+            IAStats.AddExp(240);
+        }
+        else if (CompareTag("Player2"))
+        {
+            PlayerStats.AddMoney(220);
+            PlayerStats.AddExp(240);
+        }
+    }
+
     // Update is called 50x per second
     void FixedUpdate()
     {
-        AntiArmorRb.velocity = Vector2.right * speed;
+        // Ajuster la direction et l'échelle en fonction du tag
+        if (CompareTag("Player1"))
+        {
+            transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+            AntiArmorRb.velocity = Vector2.right * speed;
+        }
+        else if (CompareTag("Player2"))
+        {
+            transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+            AntiArmorRb.velocity = Vector2.left * speed;
+        }
     }
 }

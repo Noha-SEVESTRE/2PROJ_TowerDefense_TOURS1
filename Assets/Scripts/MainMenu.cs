@@ -5,13 +5,29 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public GameObject difficultyPanel;
+    public GameObject mainMenuPanel; 
+
     public void PlayGame()
     {
-        SceneManager.LoadSceneAsync(1);
+        mainMenuPanel.SetActive(false); 
+        difficultyPanel.SetActive(true); 
     }
 
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void SelectDifficulty(string difficulty)
+    {
+        PlayerPrefs.SetString("GameDifficulty", difficulty); 
+        SceneManager.LoadSceneAsync(1);
+    }
+
+    public void BackToMainMenu()
+    {
+        difficultyPanel.SetActive(false); 
+        mainMenuPanel.SetActive(true); 
     }
 }

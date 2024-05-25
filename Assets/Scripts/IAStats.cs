@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerStats : MonoBehaviour
+public class IAStats : MonoBehaviour
 {
     public static int money;
     public static int exp;

@@ -74,9 +74,33 @@ public class Tank : MonoBehaviour, IDamageable
         }
     }
 
+    private void OnDestroy()
+    {
+        if (CompareTag("Player1"))
+        {
+            IAStats.AddMoney(420);
+            IAStats.AddExp(440);
+        }
+        else if (CompareTag("Player2"))
+        {
+            PlayerStats.AddMoney(420);
+            PlayerStats.AddExp(440);
+        }
+    }
+
     // Update is called 50x per second
     void FixedUpdate()
     {
-        TankRb.velocity = Vector2.right * speed;
+        // Ajuster la direction et l'échelle en fonction du tag
+        if (CompareTag("Player1"))
+        {
+            transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
+            TankRb.velocity = Vector2.right * speed;
+        }
+        else if (CompareTag("Player2"))
+        {
+            transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
+            TankRb.velocity = Vector2.left * speed;
+        }
     }
 }
