@@ -6,14 +6,23 @@ public class TurretPlacement : MonoBehaviour
     private Color startColor;
     private SpriteRenderer rend;
     private GameObject turret;
+    
+    private TurretBuildManager turretBuildManager;
 
     private void Start()
     {
         rend = GetComponent<SpriteRenderer>();
         startColor = rend.color;
+
+        turretBuildManager = TurretBuildManager.instance;
     }
     private void OnMouseEnter()
     {
+        if(turretBuildManager.GetTurretToBuild() == null)
+        {
+            return;
+        }
+
         rend.color = hoverColor;
     }
 
@@ -24,13 +33,20 @@ public class TurretPlacement : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if(turretBuildManager.GetTurretToBuild() == null)
+        {
+            return;
+        }
+
         if(turret != null)
         {
             Debug.Log("Can't place, a turret is already here.");
             return;
         }
 
-        GameObject turretToBuild = TurretBuildManager.instance.GetTurretToBuild();
+        GameObject turretToBuild = turretBuildManager.GetTurretToBuild();
         turret = (GameObject)Instantiate(turretToBuild, transform.position, transform.rotation);
+
+        turretBuildManager.SetTurretToBuild(null);
     }
 }
