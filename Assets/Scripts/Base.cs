@@ -23,8 +23,8 @@ public class Base : MonoBehaviour, IDamageable
         if (gameOverPanel != null)
         {
             gameOverPanel.SetActive(true);
+            Time.timeScale = 0;
+            Debug.Log("Time.timeScale à la fin : " + Time.timeScale);
         }
-        // Gèle la scène
-        Time.timeScale = 0;
     }
 }

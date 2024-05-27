@@ -23,6 +23,7 @@ public class MainMenu : MonoBehaviour
     {
         PlayerPrefs.SetString("GameDifficulty", difficulty); 
         SceneManager.LoadSceneAsync(1);
+        Debug.Log("Time.timeScale au début : " + Time.timeScale);
     }
 
     public void BackToMainMenu()
