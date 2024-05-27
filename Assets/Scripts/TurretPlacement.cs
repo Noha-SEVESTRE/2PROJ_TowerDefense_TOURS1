@@ -41,11 +41,24 @@ public class TurretPlacement : MonoBehaviour
         if(turret != null)
         {
             Debug.Log("Can't place, a turret is already here.");
+            turretBuildManager.SetTurretToBuild(null);
             return;
         }
 
         GameObject turretToBuild = turretBuildManager.GetTurretToBuild();
+        Turret turretComponent = turretToBuild.GetComponent<Turret>();
+        int turretPrice = turretComponent.price;
+
+        if(turretPrice > PlayerStats.money)
+        {
+            Debug.Log("Not enough money to place the turret.");
+            turretBuildManager.SetTurretToBuild(null);
+            return;
+        }
+
         turret = (GameObject)Instantiate(turretToBuild, transform.position, transform.rotation);
+        turret.tag = "TurretPlayer1";
+        PlayerStats.money -= turretPrice;
 
         turretBuildManager.SetTurretToBuild(null);
     }

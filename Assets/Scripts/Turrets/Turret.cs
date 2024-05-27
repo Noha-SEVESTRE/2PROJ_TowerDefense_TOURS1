@@ -10,42 +10,50 @@ public class Turret : MonoBehaviour
 
     public GameObject projectilePrefab;
     public Transform firePoint;
-    public float attackSpeed = 0.75f;
-    private float attackCooldown = 0f;
+    public float attackSpeed;
+
+    public int minDamage; // Dégât minimum de la tourelle
+    public int maxDamage; // Dégât maximum de la tourelle
+
+    public int price;
+
+    private int sellingPrice;
+    private float timeSinceLastAttack = 0f;
 
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        sellingPrice = price / 2;
     }
 
     void UpdateTarget()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Player2");
         float shortestDistance = Mathf.Infinity;
-        Vector3 playerPosition = transform.position; // Position de votre tourelle
+        Vector3 playerPosition = transform.position;
 
         foreach (GameObject enemy in enemies)
         {
             BoxCollider2D enemyCollider = enemy.GetComponent<BoxCollider2D>();
             if (enemyCollider == null)
             {
-                continue; // Passe à l'itération suivante si l'ennemi n'a pas de BoxCollider2D
+                continue;
             }
 
             Vector3 targetPosition = enemyCollider.bounds.center;
-
             float distanceToEnemy = Vector3.Distance(playerPosition, targetPosition);
+
             if (distanceToEnemy < shortestDistance)
             {
                 shortestDistance = distanceToEnemy;
                 nearestEnemyPosition = targetPosition;
-                detected = true; // Marquez l'ennemi comme détecté
+                detected = true;
             }
         }
 
         if (shortestDistance > range)
         {
-            detected = false; // Marquez l'ennemi comme non détecté
+            detected = false;
         }
     }
 
@@ -58,22 +66,35 @@ public class Turret : MonoBehaviour
             Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             partToRotate.transform.rotation = Quaternion.Slerp(partToRotate.transform.rotation, rotation, 5f * Time.deltaTime);
 
-            if (Time.time > attackCooldown)
+            timeSinceLastAttack += Time.deltaTime;
+
+            if (timeSinceLastAttack >= 1f / attackSpeed)
             {
-                attackCooldown = Time.time + 1 / attackSpeed;
                 Shoot();
+                timeSinceLastAttack = 0f;
             }
         }
     }
 
     void Shoot()
     {
-        Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+        int damage = Random.Range(minDamage, maxDamage + 1);
+        GameObject newProjectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+        Projectile projectile = newProjectile.GetComponent<Projectile>();
+        if (projectile != null)
+        {
+            projectile.SetDamage(damage);
+        }
     }
 
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, range);
+    }
+
+    public int GetSellingPrice()
+    {
+        return sellingPrice;
     }
 }
