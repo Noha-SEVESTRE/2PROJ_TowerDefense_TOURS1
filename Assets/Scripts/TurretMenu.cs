@@ -3,35 +3,38 @@ using UnityEngine.UI;
 
 public class TurretMenu : MonoBehaviour
 {
-    public GameObject panel;
+    public GameObject shopPanel;
+    public GameObject turretPositions;
     private TurretBuildManager turretBuildManager;
 
     void Start()
     {
         turretBuildManager = TurretBuildManager.instance;
     }
-    public void OpenPanel()
+    public void OpenPanels()
     {
-        if(panel != null)
+        if(shopPanel != null && turretPositions != null)
         {
-            panel.SetActive(true);
+            shopPanel.SetActive(true);
+            turretPositions.SetActive(true);
         }
         else
         {
-            Debug.LogWarning("The panel to open has not been defined !");
+            Debug.LogWarning("The panels to open have not been defined !");
         }
     }
 
-    public void ClosePanel()
+    public void ClosePanels()
     {
-        if(panel != null)
+        if(shopPanel != null && turretPositions != null)
         {
-            panel.SetActive(false);
+            shopPanel.SetActive(false);
+            turretPositions.SetActive(false);
             turretBuildManager.SetTurretToBuild(null);
         }
         else
         {
-            Debug.LogWarning("The panel to close has not been defined !");
+            Debug.LogWarning("The panels to close have not been defined !");
         }
     }
 }
