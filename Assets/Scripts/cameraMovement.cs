@@ -11,12 +11,6 @@ public class ScrollWithMouse : MonoBehaviour
 
     void Update()
     {
-        // Vérifie si le temps est gelé
-        if (Time.timeScale == 0)
-        {
-            return; // Si le temps est gelé, ne pas exécuter le reste de la fonction Update
-        }
-
         float scrollInput = Input.GetAxis("Mouse ScrollWheel");
         transform.Translate(Vector3.forward * scrollInput * scrollSpeed);
 
