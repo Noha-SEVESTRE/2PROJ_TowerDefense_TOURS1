@@ -9,6 +9,8 @@ public class Tank : MonoBehaviour, IDamageable
     public int MaxHealth => maxHealth;
     public Rigidbody2D TankRb;
     public float speed;
+    public float cooldown = 4f;
+
 
     public int cost = 400;
     public float damageInterval = 1.5f;

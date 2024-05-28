@@ -13,6 +13,8 @@ public class Archer : MonoBehaviour, IDamageable
     public int MaxHealth => maxHealth;
     public int cost = 125;
 
+    public float cooldown = 1.5f;
+
     // Ajout d'une variable pour définir la portée du raycast
     public float raycastDistance = 5f;
 

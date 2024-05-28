@@ -9,6 +9,8 @@ public class AntiArmor : MonoBehaviour, IDamageable
     public int MaxHealth => maxHealth;
     public Rigidbody2D AntiArmorRb;
     public float speed;
+    public float cooldown = 2.5f;
+
 
     public int cost = 200;
     public float damageInterval = 2.0f;

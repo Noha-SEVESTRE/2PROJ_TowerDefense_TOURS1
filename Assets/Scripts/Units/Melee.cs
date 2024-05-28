@@ -9,6 +9,8 @@ public class Melee : MonoBehaviour, IDamageable
     public int MaxHealth => maxHealth;
     public Rigidbody2D MeleeRb;
     public float speed;
+    public float cooldown = 1f;
+
 
     public int cost = 100;
     public float damageInterval = 1.0f;

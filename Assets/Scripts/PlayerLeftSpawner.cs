@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerLeftSpawner : MonoBehaviour
 {
@@ -10,13 +11,22 @@ public class PlayerLeftSpawner : MonoBehaviour
     public GameObject tankPrefab;
     public Transform spawnPoint;
 
+    public Button meleeButton;
+    public Button archerButton;
+    public Button antiArmorButton;
+    public Button tankButton;
+
     private bool canSpawn = true; // variable pour vérifier si le spawn est possible
 
     // Fonction pour désactiver le cooldown après un certain temps
-    private IEnumerator ResetSpawnCooldown()
+    private IEnumerator ResetSpawnCooldown(float cooldown)
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(cooldown);
         canSpawn = true;
+        meleeButton.interactable = true;
+        archerButton.interactable = true;
+        antiArmorButton.interactable = true;
+        tankButton.interactable = true;
     }
 
     // Fonction pour instancier une unité avec un cooldown
@@ -25,7 +35,10 @@ public class PlayerLeftSpawner : MonoBehaviour
         GameObject spawnedUnit = Instantiate(unit, spawnPoint.position, Quaternion.identity);
         spawnedUnit.tag = spawnPoint.tag; // Assigner le tag du spawnPoint à l'unité générée
         canSpawn = false; // désactiver le spawn temporairement
-        StartCoroutine(ResetSpawnCooldown()); // lancer le cooldown
+        meleeButton.interactable = false;
+        archerButton.interactable = false;
+        antiArmorButton.interactable = false;
+        tankButton.interactable = false;
     }
 
     // Méthodes pour instancier chaque type d'unité
@@ -48,6 +61,7 @@ public class PlayerLeftSpawner : MonoBehaviour
 
         PlayerStats.money -= meleeScript.cost;
         SpawnUnit(meleePrefab);
+        StartCoroutine(ResetSpawnCooldown(meleeScript.cooldown)); // lancer le cooldown
     }
 
 
@@ -70,6 +84,7 @@ public class PlayerLeftSpawner : MonoBehaviour
 
         PlayerStats.money -= antiArmorScript.cost;
         SpawnUnit(antiArmorPrefab);
+        StartCoroutine(ResetSpawnCooldown(antiArmorScript.cooldown)); // lancer le cooldown
     }
 
     public void SpawnArcher()
@@ -91,6 +106,7 @@ public class PlayerLeftSpawner : MonoBehaviour
 
         PlayerStats.money -= archerScript.cost;
         SpawnUnit(archerPrefab);
+        StartCoroutine(ResetSpawnCooldown(archerScript.cooldown)); // lancer le cooldown
     }
 
     public void SpawnTank()
@@ -112,5 +128,6 @@ public class PlayerLeftSpawner : MonoBehaviour
 
         PlayerStats.money -= tankScript.cost;
         SpawnUnit(tankPrefab);
+        StartCoroutine(ResetSpawnCooldown(tankScript.cooldown)); // lancer le cooldown
     }
 }

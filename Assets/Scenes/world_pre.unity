@@ -4228,6 +4228,10 @@ MonoBehaviour:
   archerPrefab: {fileID: 91793672397175711, guid: 4ddb6a8d866e596418a45ea6515183a9, type: 3}
   tankPrefab: {fileID: 1682748104933154984, guid: dd3a26956f73a184d9c09066338060ba, type: 3}
   spawnPoint: {fileID: 3101265}
+  meleeButton: {fileID: 610323791}
+  archerButton: {fileID: 1818938397}
+  antiArmorButton: {fileID: 1059643835}
+  tankButton: {fileID: 264671481}
 --- !u!114 &965276929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4329,6 +4333,9 @@ MonoBehaviour:
   spawnPoint: {fileID: 0}
   numberOfMeteorites: 15
   spawnInterval: 0.5
+  spawnCooldown: 40
+  cost: 2000
+  godSpellButton: {fileID: 1075840553}
 --- !u!114 &965276935
 MonoBehaviour:
   m_ObjectHideFlags: 0
