@@ -84,6 +84,7 @@ public class Turret : MonoBehaviour
         if (projectile != null)
         {
             projectile.SetDamage(damage);
+            projectile.shooterTag = gameObject.tag;
         }
     }
 

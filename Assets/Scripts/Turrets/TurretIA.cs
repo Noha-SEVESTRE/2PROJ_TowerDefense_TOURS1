@@ -62,7 +62,7 @@ public class TurretIA : MonoBehaviour
         if (detected)
         {
             Vector2 direction = nearestEnemyPosition - transform.position;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            float angle = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg;
             Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             partToRotate.transform.rotation = Quaternion.Slerp(partToRotate.transform.rotation, rotation, 5f * Time.deltaTime);
 
@@ -84,6 +84,7 @@ public class TurretIA : MonoBehaviour
         if (projectile != null)
         {
             projectile.SetDamage(damage);
+            projectile.shooterTag = gameObject.tag;
         }
     }
 
