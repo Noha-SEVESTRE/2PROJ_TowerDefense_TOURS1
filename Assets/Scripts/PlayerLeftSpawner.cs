@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerLeftSpawner : MonoBehaviour
 {
-    public GameObject meleePrefab; // Référence au prefab de l'unité melee
+    public GameObject meleePrefab;
     public GameObject antiArmorPrefab;
     public GameObject archerPrefab;
     public GameObject tankPrefab;
@@ -16,9 +16,27 @@ public class PlayerLeftSpawner : MonoBehaviour
     public Button antiArmorButton;
     public Button tankButton;
 
-    private bool canSpawn = true; // variable pour vérifier si le spawn est possible
+    private bool canSpawn = true;
 
-    // Fonction pour désactiver le cooldown après un certain temps
+    private int CountPlayer1Units()
+    {
+        int count = 0;
+        GameObject[] player1Units = GameObject.FindGameObjectsWithTag("Player1");
+        foreach (GameObject unit in player1Units)
+        {
+            if (unit.GetComponent<Melee>() || unit.GetComponent<Archer>() || unit.GetComponent<AntiArmor>() || unit.GetComponent<Tank>())
+            {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    private bool CanSpawnUnit()
+    {
+        return CountPlayer1Units() < 10;
+    }
+
     private IEnumerator ResetSpawnCooldown(float cooldown)
     {
         yield return new WaitForSeconds(cooldown);
@@ -29,19 +47,23 @@ public class PlayerLeftSpawner : MonoBehaviour
         tankButton.interactable = true;
     }
 
-    // Fonction pour instancier une unité avec un cooldown
     private void SpawnUnit(GameObject unit)
     {
+        if (!CanSpawnUnit())
+        {
+            Debug.Log("Impossible de faire spawn une unité, le nombre maximum d'unités sur le terrain est atteint.");
+            return;
+        }
+
         GameObject spawnedUnit = Instantiate(unit, spawnPoint.position, Quaternion.identity);
-        spawnedUnit.tag = spawnPoint.tag; // Assigner le tag du spawnPoint à l'unité générée
-        canSpawn = false; // désactiver le spawn temporairement
+        spawnedUnit.tag = spawnPoint.tag;
+        canSpawn = false;
         meleeButton.interactable = false;
         archerButton.interactable = false;
         antiArmorButton.interactable = false;
         tankButton.interactable = false;
     }
 
-    // Méthodes pour instancier chaque type d'unité
     public void SpawnMelee()
     {
         if (!canSpawn)
@@ -50,7 +72,7 @@ public class PlayerLeftSpawner : MonoBehaviour
             return;
         }
 
-        Melee meleeScript = meleePrefab.GetComponent<Melee>(); // Obtenir la référence à la classe Melee
+        Melee meleeScript = meleePrefab.GetComponent<Melee>();
         Debug.Log("Money before spawning: " + PlayerStats.money);
 
         if (PlayerStats.money < meleeScript.cost)
@@ -61,9 +83,8 @@ public class PlayerLeftSpawner : MonoBehaviour
 
         PlayerStats.money -= meleeScript.cost;
         SpawnUnit(meleePrefab);
-        StartCoroutine(ResetSpawnCooldown(meleeScript.cooldown)); // lancer le cooldown
+        StartCoroutine(ResetSpawnCooldown(meleeScript.cooldown));
     }
-
 
     public void SpawnAntiArmor()
     {
@@ -73,9 +94,9 @@ public class PlayerLeftSpawner : MonoBehaviour
             return;
         }
 
-        AntiArmor antiArmorScript = antiArmorPrefab.GetComponent<AntiArmor>(); // Obtenir la référence à la classe AntiArmor
+        AntiArmor antiArmorScript = antiArmorPrefab.GetComponent<AntiArmor>();
         Debug.Log("Money before spawning: " + PlayerStats.money);
-        
+
         if (PlayerStats.money < antiArmorScript.cost)
         {
             Debug.Log("Pas assez d'argent pour cette unité");
@@ -84,7 +105,7 @@ public class PlayerLeftSpawner : MonoBehaviour
 
         PlayerStats.money -= antiArmorScript.cost;
         SpawnUnit(antiArmorPrefab);
-        StartCoroutine(ResetSpawnCooldown(antiArmorScript.cooldown)); // lancer le cooldown
+        StartCoroutine(ResetSpawnCooldown(antiArmorScript.cooldown));
     }
 
     public void SpawnArcher()
@@ -95,9 +116,9 @@ public class PlayerLeftSpawner : MonoBehaviour
             return;
         }
 
-        Archer archerScript = archerPrefab.GetComponent<Archer>(); // Obtenir la référence à la classe Archer
+        Archer archerScript = archerPrefab.GetComponent<Archer>();
         Debug.Log("Money before spawning: " + PlayerStats.money);
-        
+
         if (PlayerStats.money < archerScript.cost)
         {
             Debug.Log("Pas assez d'argent pour cette unité");
@@ -106,7 +127,7 @@ public class PlayerLeftSpawner : MonoBehaviour
 
         PlayerStats.money -= archerScript.cost;
         SpawnUnit(archerPrefab);
-        StartCoroutine(ResetSpawnCooldown(archerScript.cooldown)); // lancer le cooldown
+        StartCoroutine(ResetSpawnCooldown(archerScript.cooldown));
     }
 
     public void SpawnTank()
@@ -117,9 +138,9 @@ public class PlayerLeftSpawner : MonoBehaviour
             return;
         }
 
-        Tank tankScript = tankPrefab.GetComponent<Tank>(); // Obtenir la référence à la classe Tank
+        Tank tankScript = tankPrefab.GetComponent<Tank>();
         Debug.Log("Money before spawning: " + PlayerStats.money);
-        
+
         if (PlayerStats.money < tankScript.cost)
         {
             Debug.Log("Pas assez d'argent pour cette unité");
@@ -128,6 +149,6 @@ public class PlayerLeftSpawner : MonoBehaviour
 
         PlayerStats.money -= tankScript.cost;
         SpawnUnit(tankPrefab);
-        StartCoroutine(ResetSpawnCooldown(tankScript.cooldown)); // lancer le cooldown
+        StartCoroutine(ResetSpawnCooldown(tankScript.cooldown));
     }
 }
