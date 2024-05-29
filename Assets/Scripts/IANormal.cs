@@ -57,6 +57,13 @@ public class IANormal : MonoBehaviour
         if (!canSpawn)
             return;
 
+        // Vérifie d'abord si le nombre maximum d'unités est atteint
+        if (CountIAUnits() >= 10)
+        {
+            Debug.Log("Nombre maximum d'unités atteint. L'IA ne peut pas faire spawn plus d'unités.");
+            return;
+        }
+
         GameObject unitToSpawn = ChooseNextUnitInSequence();
 
         if (unitToSpawn == null)
@@ -122,5 +129,19 @@ public class IANormal : MonoBehaviour
     {
         yield return new WaitForSeconds(spawnInterval);
         canSpawn = true;
+    }
+
+    private int CountIAUnits()
+    {
+        int count = 0;
+        GameObject[] IAUnits = GameObject.FindGameObjectsWithTag("Player2");
+        foreach (GameObject unit in IAUnits)
+        {
+            if (unit.GetComponent<Melee>() || unit.GetComponent<Archer>() || unit.GetComponent<AntiArmor>() || unit.GetComponent<Tank>())
+            {
+                count++;
+            }
+        }
+        return count;
     }
 }

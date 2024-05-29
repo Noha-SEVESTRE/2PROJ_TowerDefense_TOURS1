@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IAEazy : MonoBehaviour
+public class IAEasy : MonoBehaviour
 {
     public GameObject meleePrefab;
     public GameObject antiArmorPrefab;
@@ -32,6 +32,13 @@ public class IAEazy : MonoBehaviour
     {
         if (!canSpawn)
             return;
+
+        // Vérifie d'abord si le nombre maximum d'unités est atteint
+        if (CountIAUnits() >= 10)
+        {
+            Debug.Log("Nombre maximum d'unités atteint. L'IA ne peut pas faire spawn plus d'unités.");
+            return;
+        }
 
         GameObject unitToSpawn = ChooseRandomUnit();
 
@@ -101,5 +108,19 @@ public class IAEazy : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         canSpawn = true;
+    }
+
+    private int CountIAUnits()
+    {
+        int count = 0;
+        GameObject[] IAUnits = GameObject.FindGameObjectsWithTag("Player2");
+        foreach (GameObject unit in IAUnits)
+        {
+            if (unit.GetComponent<Melee>() || unit.GetComponent<Archer>() || unit.GetComponent<AntiArmor>() || unit.GetComponent<Tank>())
+            {
+                count++;
+            }
+        }
+        return count;
     }
 }

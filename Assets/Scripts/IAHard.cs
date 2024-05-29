@@ -21,7 +21,7 @@ public class IAHard : MonoBehaviour
     private float spawnInterval = 3.0f;
     private float nextSpawnTime;
 
-    private float turretCheckInterval = 10.0f; // Intervalle de vérification des emplacements de tourelles
+    private float turretCheckInterval = 45.0f; // Intervalle de vérification des emplacements de tourelles
     private float nextTurretCheckTime;
 
     private float reservePercentage = 0.2f; // Pourcentage des ressources à conserver
@@ -35,19 +35,19 @@ public class IAHard : MonoBehaviour
     {
         nextSpawnTime = Time.time + spawnInterval;
         nextTurretCheckTime = Time.time + turretCheckInterval; // Initialiser le temps de vérification des tourelles
-        //InitializeUnitSequence();
+        InitializeUnitSequence();
     }
 
     private void Update()
     {
-        /*if (Time.time >= nextSpawnTime)
+        if (Time.time >= nextSpawnTime)
         {
             if (canSpawn)
             {
                 TrySpawnUnit();
                 nextSpawnTime = Time.time + spawnInterval;
             }
-        }*/
+        }
 
         if (Time.time >= nextTurretCheckTime)
         {
@@ -59,7 +59,7 @@ public class IAHard : MonoBehaviour
         }
     }
 
-    /*private void InitializeUnitSequence()
+    private void InitializeUnitSequence()
     {
         unitSequence = new Queue<GameObject>();
         unitSequence.Enqueue(tankPrefab);
@@ -72,12 +72,19 @@ public class IAHard : MonoBehaviour
         unitSequence.Enqueue(archerPrefab);
         unitSequence.Enqueue(tankPrefab);
         unitSequence.Enqueue(antiArmorPrefab);
-    }*/
+    }
 
-    /*private void TrySpawnUnit()
+    private void TrySpawnUnit()
     {
         if (!canSpawn)
             return;
+
+        // Vérifie d'abord si le nombre maximum d'unités est atteint
+        if (CountIAUnits() >= 10)
+        {
+            Debug.Log("Nombre maximum d'unités atteint. L'IA ne peut pas faire spawn plus d'unités.");
+            return;
+        }
 
         GameObject unitToSpawn = ChooseNextUnitInSequence();
 
@@ -143,8 +150,8 @@ public class IAHard : MonoBehaviour
     private IEnumerator ResetSpawnCooldown()
     {
         yield return new WaitForSeconds(spawnInterval);
-        canSpawn = true;
-    }*/
+                canSpawn = true;
+    }
 
     private bool TryBuyTurretPosition()
     {
@@ -199,7 +206,7 @@ public class IAHard : MonoBehaviour
         }
     }
 
-    /*private void FlipTurret(GameObject turret)
+    private void FlipTurret(GameObject turret)
     {
         SpriteRenderer spriteRenderer = turret.GetComponent<SpriteRenderer>();
         if (spriteRenderer != null)
@@ -210,7 +217,7 @@ public class IAHard : MonoBehaviour
         {
             Debug.LogWarning("Le GameObject de la tourelle n'a pas de SpriteRenderer.");
         }
-    }*/
+    }
 
     private GameObject ChooseTurretToBuild()
     {
@@ -247,5 +254,19 @@ public class IAHard : MonoBehaviour
         }
 
         return null;
+    }
+
+    private int CountIAUnits()
+    {
+        int count = 0;
+        GameObject[] IAUnits = GameObject.FindGameObjectsWithTag("Player2");
+        foreach (GameObject unit in IAUnits)
+        {
+            if (unit.GetComponent<Melee>() || unit.GetComponent<Archer>() || unit.GetComponent<AntiArmor>() || unit.GetComponent<Tank>())
+            {
+                count++;
+            }
+        }
+        return count;
     }
 }
