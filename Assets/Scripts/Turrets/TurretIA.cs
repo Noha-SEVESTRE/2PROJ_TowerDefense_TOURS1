@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Turret : MonoBehaviour
+public class TurretIA : MonoBehaviour
 {
     public float range = 10f;
     public GameObject partToRotate;
@@ -28,7 +28,7 @@ public class Turret : MonoBehaviour
 
     void UpdateTarget()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Player2");
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Player1");
         float shortestDistance = Mathf.Infinity;
         Vector3 playerPosition = transform.position;
 

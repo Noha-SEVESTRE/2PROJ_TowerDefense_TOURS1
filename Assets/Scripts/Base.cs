@@ -10,6 +10,9 @@ public class Base : MonoBehaviour, IDamageable
     // Référence au GameOverPanel
     public GameObject gameOverPanel;
 
+    // Référence au DifficultyManager
+    public DifficultyManager difficultyManager;
+
     // Cette fonction est appelée lorsque le GameObject est détruit
     private void OnDestroy()
     {
@@ -23,8 +26,12 @@ public class Base : MonoBehaviour, IDamageable
         if (gameOverPanel != null)
         {
             gameOverPanel.SetActive(true);
-            Time.timeScale = 0;
-            Debug.Log("Time.timeScale à la fin : " + Time.timeScale);
+        }
+
+        // Désactive le GameObject de l'IA actif
+        if (difficultyManager != null)
+        {
+            difficultyManager.DeactivateActiveAI();
         }
     }
 }
