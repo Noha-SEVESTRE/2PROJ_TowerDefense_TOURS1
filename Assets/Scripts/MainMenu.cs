@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public GameObject difficultyPanel;
-    public GameObject mainMenuPanel; 
+    public GameObject mainMenuPanel;
 
     public void PlayGame()
     {
-        mainMenuPanel.SetActive(false); 
-        difficultyPanel.SetActive(true); 
+        mainMenuPanel.SetActive(false);
+        difficultyPanel.SetActive(true);
     }
 
     public void QuitGame()
@@ -21,14 +21,13 @@ public class MainMenu : MonoBehaviour
 
     public void SelectDifficulty(string difficulty)
     {
-        PlayerPrefs.SetString("GameDifficulty", difficulty); 
+        PlayerPrefs.SetString("GameDifficulty", difficulty);
         SceneManager.LoadSceneAsync(1);
-        Debug.Log("Time.timeScale au début : " + Time.timeScale);
     }
 
     public void BackToMainMenu()
     {
-        difficultyPanel.SetActive(false); 
-        mainMenuPanel.SetActive(true); 
+        difficultyPanel.SetActive(false);
+        mainMenuPanel.SetActive(true);
     }
 }

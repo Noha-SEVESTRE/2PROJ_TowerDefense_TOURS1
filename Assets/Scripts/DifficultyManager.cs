@@ -9,27 +9,42 @@ public class DifficultyManager : MonoBehaviour
     public GameObject IAHardManagement;
     public GameObject IAHellManagement;
 
+    private GameObject activeAI;
+
     void Start()
     {
         string difficulty = PlayerPrefs.GetString("GameDifficulty");
 
-        switch(difficulty)
+        switch (difficulty)
         {
             case "Easy":
                 IAEasyManagement.SetActive(true);
+                activeAI = IAEasyManagement;
                 break;
             case "Normal":
                 IANormalManagement.SetActive(true);
+                activeAI = IANormalManagement;
                 break;
             case "Hard":
                 IAHardManagement.SetActive(true);
+                activeAI = IAHardManagement;
                 break;
             case "Hell":
                 IAHellManagement.SetActive(true);
+                activeAI = IAHellManagement;
                 break;
             default:
                 Debug.LogError("Difficulté inconnue: " + difficulty);
                 break;
+        }
+    }
+
+    // Méthode pour désactiver le GameObject de l'IA actif
+    public void DeactivateActiveAI()
+    {
+        if (activeAI != null)
+        {
+            activeAI.SetActive(false);
         }
     }
 }
