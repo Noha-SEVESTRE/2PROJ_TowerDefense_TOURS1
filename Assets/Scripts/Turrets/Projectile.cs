@@ -9,7 +9,7 @@ public class Projectile : MonoBehaviour
 
     void Update()
     {
-        if (shooterTag == "Player1")
+        if (shooterTag == "TurretPlayer1")
         {
             transform.Translate(Vector3.right * speed * Time.deltaTime);
         }
@@ -17,7 +17,6 @@ public class Projectile : MonoBehaviour
         {
             transform.Translate(Vector3.left * speed * Time.deltaTime);
         }
-        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -32,14 +31,39 @@ public class Projectile : MonoBehaviour
         }
         else
         {
-            HealthBar healthBar = collision.gameObject.GetComponent<HealthBar>();
-            if (healthBar != null)
+            if (shooterTag == "TurretPlayer1")
             {
-                healthBar.UpdateHealth(damage);
+                if (collision.gameObject.CompareTag("Player1"))
+                {
+                    Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.collider);
+                }
+                else
+                {
+                    HealthBar healthBar = collision.gameObject.GetComponent<HealthBar>();
+                    if (healthBar != null)
+                    {
+                        healthBar.UpdateHealth(damage);
+                    }
+                    Destroy(gameObject);
+                }
             }
-            Destroy(gameObject);
+            else
+            {
+                if (collision.gameObject.CompareTag("Player2"))
+                {
+                    Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.collider);
+                }
+                else
+                {
+                    HealthBar healthBar = collision.gameObject.GetComponent<HealthBar>();
+                    if (healthBar != null)
+                    {
+                        healthBar.UpdateHealth(damage);
+                    }
+                    Destroy(gameObject);
+                }
+            }
         }
-        
     }
 
     public void SetDamage(int damageValue)
