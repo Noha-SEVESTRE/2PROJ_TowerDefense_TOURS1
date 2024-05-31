@@ -4780,17 +4780,26 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9c84b9bcabb21fd46ba8dbe924ac95f5, type: 3}
   - {fileID: 21300000, guid: c2e862316b0e53b499045fee55a3a451, type: 3}
   - {fileID: 21300000, guid: 370d8d03318147f40a833daa544c8e57, type: 3}
-  - {fileID: 21300000, guid: 4a80792244db58c4db64720efb6e6a49, type: 3}
+  - {fileID: 21300000, guid: 2952235a480695c4b92ed0278496bacd, type: 3}
   - {fileID: 21300000, guid: 57524a7e439e29d47b0140e59a4f688d, type: 3}
   backgroundRenderer: {fileID: 1540880965}
   groundTilemap: {fileID: 1898700827}
-  groundSprites:
-  - {fileID: 1902093241, guid: bb25224ccb0b76b4f947eff2304ff063, type: 3}
-  - {fileID: 1902093241, guid: bb25224ccb0b76b4f947eff2304ff063, type: 3}
-  - {fileID: 1902093241, guid: bb25224ccb0b76b4f947eff2304ff063, type: 3}
-  - {fileID: 1902093241, guid: bb25224ccb0b76b4f947eff2304ff063, type: 3}
-  - {fileID: 1902093241, guid: bb25224ccb0b76b4f947eff2304ff063, type: 3}
-  - {fileID: 1902093241, guid: bb25224ccb0b76b4f947eff2304ff063, type: 3}
+  groundTiles:
+  - {fileID: 11400000, guid: 2d089b5b505db7747a33773bb0d5612e, type: 2}
+  - {fileID: 11400000, guid: dbdb2735b419a8741991c8fb856552e5, type: 2}
+  - {fileID: 11400000, guid: 607bbb9039010d4499b1ba21cd36ee8f, type: 2}
+  - {fileID: 11400000, guid: 409a1a6b2e507484aa89f9dfb2f8a9aa, type: 2}
+  - {fileID: 11400000, guid: 7753c478c76107547822561823bad500, type: 2}
+  - {fileID: 11400000, guid: 409dc3b387a5eff4583947e5852b8453, type: 2}
+  playerBases:
+  - {fileID: 21300000, guid: 1b136e307c928da42b223e9251103030, type: 3}
+  - {fileID: 21300000, guid: e7226ce5651db6c4a8cef09f51e7820b, type: 3}
+  - {fileID: 21300000, guid: b68d473a08d3ca048a3e8c1cb6f8158e, type: 3}
+  - {fileID: 21300000, guid: be90be06bb6683e45969de7ed6d9f588, type: 3}
+  - {fileID: 21300000, guid: a6793d3cffba59a46bd922e51c032eaf, type: 3}
+  - {fileID: 21300000, guid: aa628141981c16f49966a7ca09af43cd, type: 3}
+  player1BaseRenderer: {fileID: 1048399701}
+  player2BaseRenderer: {fileID: 1953841081}
 --- !u!1 &1032708133
 GameObject:
   m_ObjectHideFlags: 0
@@ -4853,7 +4862,7 @@ GameObject:
   - component: {fileID: 1048399705}
   - component: {fileID: 1048399704}
   m_Layer: 0
-  m_Name: base_pre1
+  m_Name: base_Player1
   m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8612,7 +8621,7 @@ GameObject:
   - component: {fileID: 1953841083}
   - component: {fileID: 1953841079}
   m_Layer: 0
-  m_Name: base_pre2
+  m_Name: base_Player2
   m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
