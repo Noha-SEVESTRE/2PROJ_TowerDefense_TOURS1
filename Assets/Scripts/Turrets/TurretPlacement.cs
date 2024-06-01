@@ -8,6 +8,7 @@ public class TurretPlacement : MonoBehaviour
     private GameObject turret;
     
     private TurretBuildManager turretBuildManager;
+    private Evolution evolutionScript;
 
     private void Start()
     {
@@ -15,6 +16,7 @@ public class TurretPlacement : MonoBehaviour
         startColor = rend.color;
 
         turretBuildManager = TurretBuildManager.instance;
+        evolutionScript = FindObjectOfType<Evolution>();
     }
     private void OnMouseEnter()
     {
@@ -58,6 +60,25 @@ public class TurretPlacement : MonoBehaviour
 
         turret = (GameObject)Instantiate(turretToBuild, transform.position, transform.rotation);
         turret.tag = "TurretPlayer1";
+
+        // Déterminer la couleur en fonction du niveau du joueur 1
+        if (evolutionScript != null)
+        {
+            SpriteRenderer turretSpriteRenderer = turret.GetComponent<SpriteRenderer>();
+            if (turretSpriteRenderer != null)
+            {
+                turretSpriteRenderer.color = evolutionScript.DeterminePlayerColor(evolutionScript.Player1Level, evolutionScript.Player1Level);
+            }
+            else
+            {
+                Debug.LogWarning("Le SpriteRenderer n'a pas été trouvé sur la tourelle instanciée.");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Le script Evolution n'a pas été trouvé.");
+        }
+
         PlayerStats.money -= turretPrice;
 
         turretBuildManager.SetTurretToBuild(null);
