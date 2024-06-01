@@ -14,7 +14,7 @@ public class IANormal : MonoBehaviour
     private float spawnInterval = 3.0f;
     private float nextSpawnTime;
 
-    private float reservePercentage = 0.2f; // Pourcentage des ressources à conserver
+    private float reservePercentage = 0.2f; 
 
     private Queue<GameObject> unitSequence;
     private int sequenceIndex = 0;
@@ -56,8 +56,6 @@ public class IANormal : MonoBehaviour
     {
         if (!canSpawn)
             return;
-
-        // Vérifie d'abord si le nombre maximum d'unités est atteint
         if (CountIAUnits() >= 10)
         {
             Debug.Log("Nombre maximum d'unités atteint. L'IA ne peut pas faire spawn plus d'unités.");
@@ -79,7 +77,7 @@ public class IANormal : MonoBehaviour
 
         IAStats.SpendMoney(unitCost);
         SpawnUnit(unitToSpawn);
-        sequenceIndex = (sequenceIndex + 1) % unitSequence.Count; // Update sequence index
+        sequenceIndex = (sequenceIndex + 1) % unitSequence.Count; 
     }
 
     private GameObject ChooseNextUnitInSequence()
@@ -120,7 +118,7 @@ public class IANormal : MonoBehaviour
     private void SpawnUnit(GameObject unit)
     {
         GameObject spawnedUnit = Instantiate(unit, spawnPoint.position, Quaternion.identity);
-        spawnedUnit.tag = spawnPoint.tag; // Assigner le tag du spawnPoint à l'unité générée
+        spawnedUnit.tag = spawnPoint.tag; 
         canSpawn = false;
         StartCoroutine(ResetSpawnCooldown());
     }

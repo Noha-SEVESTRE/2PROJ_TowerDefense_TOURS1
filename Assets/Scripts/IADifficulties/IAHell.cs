@@ -21,10 +21,10 @@ public class IAHell : MonoBehaviour
     private float spawnInterval = 3.0f;
     private float nextSpawnTime;
 
-    private float turretCheckInterval = 20.0f;  // Intervalle réduit pour vérifier les tourelles plus fréquemment
+    private float turretCheckInterval = 20.0f;  
     private float nextTurretCheckTime;
 
-    private float reservePercentage = 0.25f; // Réserve initiale plus élevée pour éviter les dépenses excessives
+    private float reservePercentage = 0.25f; 
 
     private Queue<GameObject> unitSequence;
     private int sequenceIndex = 0;
@@ -32,7 +32,7 @@ public class IAHell : MonoBehaviour
     private int currentTurretPositionIndex = 0;
 
     public GodSpell godSpell;
-    private float godSpellCheckInterval = 90.0f;  // Intervalle de vérification pour l'utilisation du GodSpell
+    private float godSpellCheckInterval = 90.0f;  
     private float nextGodSpellCheckTime;
 
     private void Start()
@@ -129,7 +129,6 @@ public class IAHell : MonoBehaviour
             }
         }
 
-        // En situation critique, permettre l'utilisation de la réserve
         if (IsCriticalSituation())
         {
             for (int i = 0; i < unitSequence.Count; i++)
@@ -188,9 +187,8 @@ public class IAHell : MonoBehaviour
             turretPositions[currentTurretPositionIndex].SetActive(true);
             Debug.Log($"IA a acheté l'emplacement de tourelle {currentTurretPositionIndex} pour {positionCost} gold.");
             currentTurretPositionIndex++;
-            nextTurretCheckTime = Time.time + turretCheckInterval; // Met à jour le temps de vérification des tourelles
+            nextTurretCheckTime = Time.time + turretCheckInterval; 
 
-            // Construction de la tourelle après achat de l'emplacement
             TryBuildTurret();
         }
         else

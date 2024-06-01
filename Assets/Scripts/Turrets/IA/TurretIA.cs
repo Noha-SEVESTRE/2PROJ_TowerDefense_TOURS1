@@ -12,8 +12,8 @@ public class TurretIA : MonoBehaviour
     public Transform firePoint;
     public float attackSpeed;
 
-    public int minDamage; // Dégât minimum de la tourelle
-    public int maxDamage; // Dégât maximum de la tourelle
+    public int minDamage; 
+    public int maxDamage; 
 
     public int price;
 

@@ -60,8 +60,6 @@ public class TurretPlacement : MonoBehaviour
 
         turret = (GameObject)Instantiate(turretToBuild, transform.position, transform.rotation);
         turret.tag = "TurretPlayer1";
-
-        // Déterminer la couleur en fonction du niveau du joueur 1
         if (evolutionScript != null)
         {
             SpriteRenderer turretSpriteRenderer = turret.GetComponent<SpriteRenderer>();

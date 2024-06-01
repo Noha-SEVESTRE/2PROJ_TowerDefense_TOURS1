@@ -3,7 +3,7 @@ using UnityEngine;
 public class TurretSale : MonoBehaviour
 {
     private bool saleEnabled = false;
-    public Texture2D saleCursorTexture; // Assurez-vous d'attribuer cette texture dans l'inspecteur
+    public Texture2D saleCursorTexture; 
 
     public void EnableSale()
     {

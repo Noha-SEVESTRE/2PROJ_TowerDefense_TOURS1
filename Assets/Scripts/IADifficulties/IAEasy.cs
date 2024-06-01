@@ -11,7 +11,7 @@ public class IAEasy : MonoBehaviour
     public Transform spawnPoint;
 
     private bool canSpawn = true;
-    private float spawnInterval = 3.0f; //A revoir?
+    private float spawnInterval = 3.0f; 
     private float nextSpawnTime;
 
     private void Start()
@@ -32,8 +32,6 @@ public class IAEasy : MonoBehaviour
     {
         if (!canSpawn)
             return;
-
-        // Vérifie d'abord si le nombre maximum d'unités est atteint
         if (CountIAUnits() >= 10)
         {
             Debug.Log("Nombre maximum d'unités atteint. L'IA ne peut pas faire spawn plus d'unités.");
@@ -99,7 +97,7 @@ public class IAEasy : MonoBehaviour
     private void SpawnUnit(GameObject unit)
     {
         GameObject spawnedUnit = Instantiate(unit, spawnPoint.position, Quaternion.identity);
-        spawnedUnit.tag = spawnPoint.tag; // Assigner le tag du spawnPoint à l'unité générée
+        spawnedUnit.tag = spawnPoint.tag; 
         canSpawn = false;
         StartCoroutine(ResetSpawnCooldown());
     }

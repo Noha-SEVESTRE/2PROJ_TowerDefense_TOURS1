@@ -20,7 +20,6 @@ public class Melee : MonoBehaviour, IDamageable
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Si aucun dommage n'est actuellement infligé, la collision est avec une nouvelle cible et les tags sont différents, démarrer la coroutine
         if (damageCoroutine == null && collision.gameObject != currentTarget && collision.gameObject.CompareTag(gameObject.tag) != true)
         {
             StartDamaging(collision.gameObject);
@@ -29,7 +28,6 @@ public class Melee : MonoBehaviour, IDamageable
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        // Si la collision persiste avec une cible différente, changer de cible
         if (collision.gameObject != currentTarget && collision.gameObject.CompareTag(gameObject.tag) != true)
         {
             StopDamaging();
@@ -39,7 +37,6 @@ public class Melee : MonoBehaviour, IDamageable
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        // Si la cible actuelle sort de la collision, arrêter de causer des dégâts
         if (collision.gameObject == currentTarget)
         {
             StopDamaging();
@@ -63,9 +60,9 @@ public class Melee : MonoBehaviour, IDamageable
 
     IEnumerator DealDamagePeriodically(GameObject target)
     {
-        while (true) // Boucle infinie pour infliger des dégâts périodiquement
+        while (true) 
         {
-            if (target != null) // Vérifier si le GameObject cible est null
+            if (target != null) 
             {
                 HealthBar healthBar = target.GetComponent<HealthBar>();
                 if (healthBar != null)
@@ -75,12 +72,9 @@ public class Melee : MonoBehaviour, IDamageable
             }
             else
             {
-                // Si le GameObject cible a été détruit, arrêter la coroutine
                 StopDamaging();
-                yield break; // Sortir de la coroutine
+                yield break; 
             }
-
-            // Attendre jusqu'à ce que le temps de dégâts soit écoulé
             yield return new WaitForSeconds(damageInterval);
         }
     }
@@ -99,18 +93,15 @@ public class Melee : MonoBehaviour, IDamageable
         }
     }
 
-    // Update is called 50x per second
     void FixedUpdate()
     {
         if (CompareTag("Player1"))
         {
-            // Définir l'échelle et la direction pour Player1
             transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
             MeleeRb.velocity = Vector2.right * speed;
         }
         else if (CompareTag("Player2"))
         {
-            // Définir l'échelle et la direction pour Player2
             transform.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
             MeleeRb.velocity = Vector2.left * speed;
         }

@@ -10,21 +10,21 @@ public class IAHard : MonoBehaviour
     public GameObject tankPrefab;
     public Transform spawnPoint;
 
-    public GameObject[] turretPositions;  // Références aux positions des tourelles IA
-    public int[] turretPrices;  // Prix des emplacements de tourelles
+    public GameObject[] turretPositions;  
+    public int[] turretPrices; 
 
-    public GameObject player2TurretPositions; // Référence au GameObject Player2TurretPositions
+    public GameObject player2TurretPositions; 
 
-    public GameObject[] availableTurrets; // Liste des tourelles disponibles
+    public GameObject[] availableTurrets; 
 
     private bool canSpawn = true;
     private float spawnInterval = 3.0f;
     private float nextSpawnTime;
 
-    private float turretCheckInterval = 45.0f; // Intervalle de vérification des emplacements de tourelles
+    private float turretCheckInterval = 45.0f; 
     private float nextTurretCheckTime;
 
-    private float reservePercentage = 0.2f; // Pourcentage des ressources à conserver
+    private float reservePercentage = 0.2f; 
 
     private Queue<GameObject> unitSequence;
     private int sequenceIndex = 0;
@@ -34,7 +34,7 @@ public class IAHard : MonoBehaviour
     private void Start()
     {
         nextSpawnTime = Time.time + spawnInterval;
-        nextTurretCheckTime = Time.time + turretCheckInterval; // Initialiser le temps de vérification des tourelles
+        nextTurretCheckTime = Time.time + turretCheckInterval; 
         InitializeUnitSequence();
     }
 
@@ -55,7 +55,7 @@ public class IAHard : MonoBehaviour
             {
                 TryBuildTurret();
             }
-            nextTurretCheckTime = Time.time + turretCheckInterval; // Réinitialiser le temps de vérification des tourelles
+            nextTurretCheckTime = Time.time + turretCheckInterval; 
         }
     }
 
@@ -78,8 +78,6 @@ public class IAHard : MonoBehaviour
     {
         if (!canSpawn)
             return;
-
-        // Vérifie d'abord si le nombre maximum d'unités est atteint
         if (CountIAUnits() >= 10)
         {
             Debug.Log("Nombre maximum d'unités atteint. L'IA ne peut pas faire spawn plus d'unités.");
@@ -101,7 +99,7 @@ public class IAHard : MonoBehaviour
 
         IAStats.SpendMoney(unitCost);
         SpawnUnit(unitToSpawn);
-        sequenceIndex = (sequenceIndex + 1) % unitSequence.Count; // Update sequence index
+        sequenceIndex = (sequenceIndex + 1) % unitSequence.Count; 
     }
 
     private GameObject ChooseNextUnitInSequence()
@@ -142,7 +140,7 @@ public class IAHard : MonoBehaviour
     private void SpawnUnit(GameObject unit)
     {
         GameObject spawnedUnit = Instantiate(unit, spawnPoint.position, Quaternion.identity);
-        spawnedUnit.tag = spawnPoint.tag; // Assigner le tag du spawnPoint à l'unité générée
+        spawnedUnit.tag = spawnPoint.tag; 
         canSpawn = false;
         StartCoroutine(ResetSpawnCooldown());
     }
@@ -190,15 +188,11 @@ public class IAHard : MonoBehaviour
             if (turretPositions[i].transform.childCount == 0)
             {
                 GameObject turret = Instantiate(turretPrefab, turretPositions[i].transform.position, Quaternion.identity);
-                turret.tag = "Player2"; // Assigner le tag Player2 à la tourelle générée
-                turret.transform.SetParent(turretPositions[i].transform); // Assigner le parent pour éviter de placer plusieurs tourelles sur le même emplacement
-
-                // Flipper la tourelle sur l'axe X pour qu'elle soit tournée vers la gauche
-                //FlipTurret(turret);
+                turret.tag = "Player2"; 
+                turret.transform.SetParent(turretPositions[i].transform); 
 
                 Debug.Log($"IA a placé une tourelle sur l'emplacement {i}.");
 
-                // Activer le GameObject Player2TurretPositions lorsque la tourelle est placée
                 player2TurretPositions.SetActive(true);
 
                 return; 

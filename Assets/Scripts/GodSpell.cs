@@ -13,7 +13,7 @@ public class GodSpell : MonoBehaviour
     private string projectileTag;
 
     private bool canSpawn = true;
-    public Button godSpellButton; // Référence au bouton associé à la fonction ActivateGodSpell
+    public Button godSpellButton; 
 
     private Evolution evolutionScript;
     
@@ -40,12 +40,10 @@ public class GodSpell : MonoBehaviour
             Quaternion spawnRotation = Quaternion.Euler(0f, 0f, -90f);
             GameObject meteorite = Instantiate(meteoritePrefab, spawnPosition, spawnRotation);
 
-            // Vérifiez si projectileTag est null ou une chaîne vide avant d'attribuer le tag
             if (!string.IsNullOrEmpty(projectileTag))
             {
-                meteorite.tag = projectileTag; // Attribution directe du tag au projectile
+                meteorite.tag = projectileTag; 
 
-                // Déterminer la couleur en fonction du niveau du joueur correspondant
                 if (evolutionScript != null)
                 {
                     SpriteRenderer meteoriteSpriteRenderer = meteorite.GetComponent<SpriteRenderer>();
@@ -88,10 +86,9 @@ public class GodSpell : MonoBehaviour
                 if (canSpawn)
                 {
                     PlayerStats.exp -= cost;
-                    projectileTag = "Player1"; // Utilisation de projectileTag
+                    projectileTag = "Player1"; 
                     StartCoroutine(SpawnMeteoritesOneByOne());
                     canSpawn = false;
-                    // Désactivez le bouton pendant le cooldown
                     godSpellButton.interactable = false;
                     StartCoroutine(ResetSpawnCooldown());
                 }
@@ -112,10 +109,9 @@ public class GodSpell : MonoBehaviour
                 if (canSpawn)
                 {
                     IAStats.exp -= cost;
-                    projectileTag = "Player2"; // Utilisation de projectileTag
+                    projectileTag = "Player2"; 
                     StartCoroutine(SpawnMeteoritesOneByOne());
                     canSpawn = false;
-                    // Désactivez le sort pendant le cooldown
                     StartCoroutine(ResetSpawnCooldown());
                 }
             }

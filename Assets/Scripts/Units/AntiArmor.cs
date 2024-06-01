@@ -20,7 +20,6 @@ public class AntiArmor : MonoBehaviour, IDamageable
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Si aucun dommage n'est actuellement infligé, la collision est avec une nouvelle cible et les tags sont différents, démarrer la coroutine
         if (damageCoroutine == null && collision.gameObject != currentTarget && collision.gameObject.CompareTag(gameObject.tag) != true)
         {
             StartDamaging(collision.gameObject);
@@ -29,7 +28,6 @@ public class AntiArmor : MonoBehaviour, IDamageable
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        // Si la collision persiste avec une cible différente, changer de cible
         if (collision.gameObject != currentTarget && collision.gameObject.CompareTag(gameObject.tag) != true)
         {
             StopDamaging();
@@ -39,7 +37,6 @@ public class AntiArmor : MonoBehaviour, IDamageable
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        // Si la cible actuelle sort de la collision, arrêter de causer des dégâts
         if (collision.gameObject == currentTarget)
         {
             StopDamaging();
@@ -63,15 +60,13 @@ public class AntiArmor : MonoBehaviour, IDamageable
 
     IEnumerator DealDamagePeriodically(GameObject target)
     {
-        while (true) // Boucle infinie pour infliger des dégâts périodiquement
+        while (true) 
         {
             HealthBar healthBar = target.GetComponent<HealthBar>();
             if (healthBar != null)
             {
                 healthBar.UpdateHealth(damage);
             }
-
-            // Attendre jusqu'à ce que le temps de dégâts soit écoulé
             yield return new WaitForSeconds(damageInterval);
         }
     }
@@ -90,10 +85,8 @@ public class AntiArmor : MonoBehaviour, IDamageable
         }
     }
 
-    // Update is called 50x per second
     void FixedUpdate()
     {
-        // Ajuster la direction et l'échelle en fonction du tag
         if (CompareTag("Player1"))
         {
             transform.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);

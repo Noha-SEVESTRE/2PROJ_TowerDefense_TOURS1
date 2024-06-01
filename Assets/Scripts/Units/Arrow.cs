@@ -8,19 +8,16 @@ public class Arrow : MonoBehaviour
     public Rigidbody2D ArrowRb;
     public float speed;
 
-    // Ajout d'une variable pour stocker le tag de l'unité qui a tiré la flèche
     public string shooterTag;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Ignorer les collisions avec les unités alliées
         if (collision.gameObject.CompareTag(shooterTag))
         {
             Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.collider);
         }
         else
         {
-            // Infliger des dégâts aux unités ennemies
             HealthBar healthBar = collision.gameObject.GetComponent<HealthBar>();
             if (healthBar != null)
             {
@@ -30,10 +27,8 @@ public class Arrow : MonoBehaviour
         }
     }
 
-    // Update is called 50x per second
     void FixedUpdate()
     {
-        // Déplacement de la flèche en fonction du tag de l'unité qui l'a tirée
         if (shooterTag == "Player1")
         {
             ArrowRb.velocity = Vector2.right * speed;

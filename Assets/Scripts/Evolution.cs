@@ -5,25 +5,20 @@ using UnityEngine.Tilemaps;
 
 public class Evolution : MonoBehaviour
 {
-    public List<Sprite> backgrounds = new List<Sprite>(); // Liste des sprites de fond
-    public List<Color> playerColors = new List<Color>(); // Liste des couleurs des joueurs
+    public List<Sprite> backgrounds = new List<Sprite>(); 
+    public List<Color> playerColors = new List<Color>(); 
 
-    public SpriteRenderer backgroundRenderer; // Référence au sprite renderer du fond
-    public Tilemap groundTilemap; // Référence au Tilemap du sol
+    public SpriteRenderer backgroundRenderer; 
+    public Tilemap groundTilemap; 
 
-    public TileBase[] groundTiles; // Tableau des Tiles de sol
+    public TileBase[] groundTiles; 
 
-    public List<Sprite> playerBases = new List<Sprite>(); // Liste des sprites de base du joueur
-    public SpriteRenderer player1BaseRenderer; // Référence au sprite renderer de la base du joueur
-    public SpriteRenderer player2BaseRenderer; // Référence au sprite renderer de la base du joueur
+    public List<Sprite> playerBases = new List<Sprite>(); 
+    public SpriteRenderer player1BaseRenderer; 
+    public SpriteRenderer player2BaseRenderer; 
 
-    public int Player1Level = 1; // Niveau du joueur 1
-    public int Player2Level = 1; // Niveau du joueur 2
-
-    private void Start()
-    {
-        // Assurez-vous que vos listes et vos références sont correctement initialisées ici
-    }
+    public int Player1Level = 1; 
+    public int Player2Level = 1; 
 
     public void Player1Evolve()
     {
