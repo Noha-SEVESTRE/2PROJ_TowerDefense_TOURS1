@@ -10,11 +10,18 @@ public class GodSpell : MonoBehaviour
     public float spawnInterval = 0.5f;
     public int spawnCooldown = 40;
     public int cost = 2000;
-    private string projectileTag; 
+    private string projectileTag;
 
     private bool canSpawn = true;
     public Button godSpellButton; // Référence au bouton associé à la fonction ActivateGodSpell
+
+    private Evolution evolutionScript;
     
+    private void Start()
+    {
+        evolutionScript = FindObjectOfType<Evolution>();
+    }
+
     private IEnumerator ResetSpawnCooldown()
     {
         yield return new WaitForSeconds(spawnCooldown);
@@ -37,6 +44,31 @@ public class GodSpell : MonoBehaviour
             if (!string.IsNullOrEmpty(projectileTag))
             {
                 meteorite.tag = projectileTag; // Attribution directe du tag au projectile
+
+                // Déterminer la couleur en fonction du niveau du joueur correspondant
+                if (evolutionScript != null)
+                {
+                    SpriteRenderer meteoriteSpriteRenderer = meteorite.GetComponent<SpriteRenderer>();
+                    if (meteoriteSpriteRenderer != null)
+                    {
+                        if (projectileTag == "Player1")
+                        {
+                            meteoriteSpriteRenderer.color = evolutionScript.DeterminePlayerColor(evolutionScript.Player1Level, evolutionScript.Player1Level);
+                        }
+                        else if (projectileTag == "Player2")
+                        {
+                            meteoriteSpriteRenderer.color = evolutionScript.DeterminePlayerColor(evolutionScript.Player2Level, evolutionScript.Player2Level);
+                        }
+                    }
+                    else
+                    {
+                        Debug.LogWarning("Le SpriteRenderer n'a pas été trouvé sur la météorite instanciée.");
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning("Le script Evolution n'a pas été trouvé.");
+                }
             }
             else
             {
@@ -73,13 +105,13 @@ public class GodSpell : MonoBehaviour
                 Debug.Log("Not enough exp");
             }
         }
-        else 
+        else
         {
-            if (IAStats.exp > cost) 
+            if (IAStats.exp > cost)
             {
                 if (canSpawn)
                 {
-                    IAStats.exp -= cost; 
+                    IAStats.exp -= cost;
                     projectileTag = "Player2"; // Utilisation de projectileTag
                     StartCoroutine(SpawnMeteoritesOneByOne());
                     canSpawn = false;
