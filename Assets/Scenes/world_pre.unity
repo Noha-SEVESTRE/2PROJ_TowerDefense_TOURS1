@@ -385,7 +385,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &200661888
 Transform:
   m_ObjectHideFlags: 0
@@ -408,7 +408,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 200661887}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 889983fdf9434504ea919fd6b20e7708, type: 3}
   m_Name: 
@@ -423,7 +423,7 @@ MonoBehaviour:
   - {fileID: 2015870977}
   - {fileID: 1541353964}
   - {fileID: 468830633}
-  turretPrices: ee020000dc050000fc080000a00f0000
+  turretPrices: f401000014050000d0070000b80b0000
   player2TurretPositions: {fileID: 66922056}
   availableTurrets:
   - {fileID: 7170436364631294899, guid: 620bc6143c4b0e34792e81119d2b6222, type: 3}
@@ -437,12 +437,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 200661887}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7c3e99a3d6401f478c37e52a46e872c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMoney: 2700
+  startMoney: 3000
   startExp: 1200
 --- !u!1001 &207366585
 PrefabInstance:
@@ -4704,7 +4704,7 @@ MonoBehaviour:
   numberOfMeteorites: 15
   spawnInterval: 0.5
   spawnCooldown: 40
-  cost: 2000
+  cost: 1
   godSpellButton: {fileID: 1075840553}
 --- !u!114 &965276935
 MonoBehaviour:
@@ -5390,14 +5390,14 @@ MonoBehaviour:
       - m_Target: {fileID: 965276933}
         m_TargetAssemblyTypeName: GodSpell, Assembly-CSharp
         m_MethodName: ActivateGodSpell
-        m_Mode: 1
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1075840554
 MonoBehaviour:
@@ -5926,13 +5926,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1206194026}
   - component: {fileID: 1206194027}
+  - component: {fileID: 1206194028}
   m_Layer: 0
   m_Name: IAHellManagement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1206194026
 Transform:
   m_ObjectHideFlags: 0
@@ -5960,8 +5961,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7c3e99a3d6401f478c37e52a46e872c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMoney: 2800
-  startExp: 1300
+  startMoney: 3100
+  startExp: 1500
+--- !u!114 &1206194028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206194025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f81e9f726f15e034fb113c35aa0dd221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meleePrefab: {fileID: 8049550376995939991, guid: a9956a79b1ac52843b76139a079faf20, type: 3}
+  antiArmorPrefab: {fileID: 7145292500361699002, guid: dc0fe14b6ca512148820dd141fbc77a6, type: 3}
+  archerPrefab: {fileID: 91793672397175711, guid: 4ddb6a8d866e596418a45ea6515183a9, type: 3}
+  tankPrefab: {fileID: 1682748104933154984, guid: dd3a26956f73a184d9c09066338060ba, type: 3}
+  spawnPoint: {fileID: 211907784}
+  turretPositions:
+  - {fileID: 382994874}
+  - {fileID: 2015870977}
+  - {fileID: 1541353964}
+  - {fileID: 468830633}
+  turretPrices: f401000014050000d0070000b80b0000
+  player2TurretPositions: {fileID: 66922056}
+  availableTurrets:
+  - {fileID: 7170436364631294899, guid: 620bc6143c4b0e34792e81119d2b6222, type: 3}
+  - {fileID: 4556973182758047715, guid: 377ed5716a757bb4eab742ca5d6f8ac4, type: 3}
+  - {fileID: 4356643621171059998, guid: 4b93c1a14c24b164da8864fd520ad75c, type: 3}
+  - {fileID: 375611864484049723, guid: d2219d473c081864799df97860fae77a, type: 3}
+  godSpell: {fileID: 1637860169}
 --- !u!1 &1219436377
 GameObject:
   m_ObjectHideFlags: 0
@@ -6639,6 +6670,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1565705325}
   m_CullTransparentMesh: 1
+--- !u!1 &1637860168
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1637860170}
+  - component: {fileID: 1637860169}
+  m_Layer: 0
+  m_Name: GodSpell
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1637860169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637860168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ef6c931dc7c4c640a6989af489fafce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meteoritePrefab: {fileID: 5054349541283561824, guid: e8c1d2240a428e54bad47a8a6388acac, type: 3}
+  spawnPoint: {fileID: 0}
+  numberOfMeteorites: 15
+  spawnInterval: 0.5
+  spawnCooldown: 40
+  cost: 2000
+  godSpellButton: {fileID: 1075840553}
+--- !u!4 &1637860170
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637860168}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.9128842, y: -3.0926723, z: -0.10722811}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1646791038
 GameObject:
   m_ObjectHideFlags: 0
@@ -9185,7 +9267,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: af9ce1601659d5b4b9f6ca4e10238c2a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -9432,87 +9514,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2087706348}
   m_CullTransparentMesh: 1
---- !u!1001 &759711166334096330
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -7129222087309071681, guid: e8c1d2240a428e54bad47a8a6388acac, type: 3}
-      propertyPath: m_Size.x
-      value: 0.1026082
-      objectReference: {fileID: 0}
-    - target: {fileID: -7129222087309071681, guid: e8c1d2240a428e54bad47a8a6388acac, type: 3}
-      propertyPath: m_Size.y
-      value: 0.09056277
-      objectReference: {fileID: 0}
-    - target: {fileID: -7129222087309071681, guid: e8c1d2240a428e54bad47a8a6388acac, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.08235392
-      objectReference: {fileID: 0}
-    - target: {fileID: -7129222087309071681, guid: e8c1d2240a428e54bad47a8a6388acac, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.004345391
-      objectReference: {fileID: 0}
-    - target: {fileID: 2327920436447959821, guid: e8c1d2240a428e54bad47a8a6388acac, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -7.63
-      objectReference: {fileID: 0}
-    - target: {fileID: 2327920436447959821, guid: e8c1d2240a428e54bad47a8a6388acac, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 2327920436447959821, guid: e8c1d2240a428e54bad47a8a6388acac, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2327920436447959821, guid: e8c1d2240a428e54bad47a8a6388acac, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 2327920436447959821, guid: e8c1d2240a428e54bad47a8a6388acac, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2327920436447959821, guid: e8c1d2240a428e54bad47a8a6388acac, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2327920436447959821, guid: e8c1d2240a428e54bad47a8a6388acac, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 2327920436447959821, guid: e8c1d2240a428e54bad47a8a6388acac, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2327920436447959821, guid: e8c1d2240a428e54bad47a8a6388acac, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2327920436447959821, guid: e8c1d2240a428e54bad47a8a6388acac, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 5054349541283561824, guid: e8c1d2240a428e54bad47a8a6388acac, type: 3}
-      propertyPath: m_Name
-      value: meteorite
-      objectReference: {fileID: 0}
-    - target: {fileID: 5054349541283561824, guid: e8c1d2240a428e54bad47a8a6388acac, type: 3}
-      propertyPath: m_TagString
-      value: Meteorite
-      objectReference: {fileID: 0}
-    - target: {fileID: 8384722284745907476, guid: e8c1d2240a428e54bad47a8a6388acac, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e8c1d2240a428e54bad47a8a6388acac, type: 3}
 --- !u!1001 &4735940995342836959
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9606,7 +9607,6 @@ SceneRoots:
   - {fileID: 211907784}
   - {fileID: 1888147689}
   - {fileID: 1765891542}
-  - {fileID: 759711166334096330}
   - {fileID: 796355837}
   - {fileID: 66922057}
   - {fileID: 262257704}
@@ -9615,3 +9615,4 @@ SceneRoots:
   - {fileID: 1206194026}
   - {fileID: 1032708135}
   - {fileID: 2078864959}
+  - {fileID: 1637860170}

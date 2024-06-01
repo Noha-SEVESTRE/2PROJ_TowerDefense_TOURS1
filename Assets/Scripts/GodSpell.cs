@@ -10,6 +10,7 @@ public class GodSpell : MonoBehaviour
     public float spawnInterval = 0.5f;
     public int spawnCooldown = 40;
     public int cost = 2000;
+    private string projectileTag; 
 
     private bool canSpawn = true;
     public Button godSpellButton; // Référence au bouton associé à la fonction ActivateGodSpell
@@ -30,32 +31,62 @@ public class GodSpell : MonoBehaviour
             float spawnY = 2f;
             Vector3 spawnPosition = new Vector3(spawnX, spawnY);
             Quaternion spawnRotation = Quaternion.Euler(0f, 0f, -90f);
-            Instantiate(meteoritePrefab, spawnPosition, spawnRotation);
+            GameObject meteorite = Instantiate(meteoritePrefab, spawnPosition, spawnRotation);
+
+            // Vérifiez si projectileTag est null ou une chaîne vide avant d'attribuer le tag
+            if (!string.IsNullOrEmpty(projectileTag))
+            {
+                meteorite.tag = projectileTag; // Attribution directe du tag au projectile
+            }
+            else
+            {
+                Debug.LogError("Projectile tag is null or empty!");
+            }
+
             yield return new WaitForSeconds(spawnInterval);
         }
     }
 
-    public void ActivateGodSpell()
+    public void ActivateGodSpell(bool isPlayerSpell)
     {
-        if (PlayerStats.exp > cost)
+        if (isPlayerSpell)
         {
-            if (canSpawn)
+            if (PlayerStats.exp > cost)
             {
-                PlayerStats.exp -= cost;
-                StartCoroutine(SpawnMeteoritesOneByOne());
-                canSpawn = false;
-                // Désactivez le bouton pendant le cooldown
-                godSpellButton.interactable = false;
-                StartCoroutine(ResetSpawnCooldown());
+                if (canSpawn)
+                {
+                    PlayerStats.exp -= cost;
+                    projectileTag = "Player1"; // Utilisation de projectileTag
+                    StartCoroutine(SpawnMeteoritesOneByOne());
+                    canSpawn = false;
+                    // Désactivez le bouton pendant le cooldown
+                    godSpellButton.interactable = false;
+                    StartCoroutine(ResetSpawnCooldown());
+                }
+                else
+                {
+                    Debug.Log("Cooldown not finished");
+                }
             }
             else
             {
-                Debug.Log("Cooldown not finished");
+                Debug.Log("Not enough exp");
             }
         }
-        else
+        else 
         {
-            Debug.Log("Not enough exp");
+            if (IAStats.exp > cost) 
+            {
+                if (canSpawn)
+                {
+                    IAStats.exp -= cost; 
+                    projectileTag = "Player2"; // Utilisation de projectileTag
+                    StartCoroutine(SpawnMeteoritesOneByOne());
+                    canSpawn = false;
+                    // Désactivez le sort pendant le cooldown
+                    StartCoroutine(ResetSpawnCooldown());
+                }
+            }
         }
     }
 }
