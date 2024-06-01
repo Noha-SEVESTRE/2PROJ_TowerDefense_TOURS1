@@ -1,39 +1,67 @@
 using UnityEngine;
+using System;
 using System.Collections.Generic;
 using UnityEngine.Tilemaps;
 
-public class Evolve : MonoBehaviour
+public class Evolution : MonoBehaviour
 {
     public List<Sprite> backgrounds = new List<Sprite>(); // Liste des sprites de fond
-    private int currentIndex = 0; // Indice actuel dans la liste de sprites de fond
+    public List<Color> playerColors = new List<Color>(); // Liste des couleurs des joueurs
 
     public SpriteRenderer backgroundRenderer; // Référence au sprite renderer du fond
     public Tilemap groundTilemap; // Référence au Tilemap du sol
 
     public TileBase[] groundTiles; // Tableau des Tiles de sol
-    private int currentTileIndex = 0; // Indice actuel dans le tableau de Tiles de sol
 
     public List<Sprite> playerBases = new List<Sprite>(); // Liste des sprites de base du joueur
     public SpriteRenderer player1BaseRenderer; // Référence au sprite renderer de la base du joueur
     public SpriteRenderer player2BaseRenderer; // Référence au sprite renderer de la base du joueur
 
+    public int Player1Level = 1; // Niveau du joueur 1
+    public int Player2Level = 1; // Niveau du joueur 2
 
-    public void ChangeBackgroundAndGround()
+    private void Start()
     {
-        // Vérifier si le sprite renderer du fond est défini
-        if (backgroundRenderer != null && currentIndex < backgrounds.Count)
+        // Assurez-vous que vos listes et vos références sont correctement initialisées ici
+    }
+
+    public void Player1Evolve()
+    {
+        if (Player1Level < 7)
         {
-            // Changer le sprite du fond
-            backgroundRenderer.sprite = backgrounds[currentIndex];
+            Player1Level += 1;
+            UpdateGraphics();
+        }
+    }
 
-            // Changer le sol avec le Tilemap
-            ChangeGround();
+    public void Player2Evolve()
+    {
+        if (Player2Level < 7)
+        {
+            Player2Level += 1;
+            UpdateGraphics();
+        }
+    }
 
-            // Changer le sprite de la base du joueur
-            ChangePlayerBase();
+    private void UpdateGraphics()
+    {
+        int maxLevel = Math.Max(Player1Level, Player2Level);
+        ChangeBackgroundAndGround(maxLevel - 1);
+        ChangePlayerBase(maxLevel, Player1Level);
+    }
 
-            // Passer à l'indice suivant pour la prochaine fois
-            currentIndex = (currentIndex + 1) % backgrounds.Count;
+    private void ChangeBackgroundAndGround(int maxLevel)
+    {
+        if (maxLevel > 6)
+        {
+            Debug.LogWarning("Les joueurs ont atteint le niveau maximum.");
+            return;
+        }
+
+        if (backgroundRenderer != null && maxLevel < backgrounds.Count)
+        {
+            backgroundRenderer.sprite = backgrounds[maxLevel];
+            ChangeGround(maxLevel);
         }
         else
         {
@@ -41,48 +69,47 @@ public class Evolve : MonoBehaviour
         }
     }
 
-    // Fonction pour changer le sol avec le Tilemap
-    private void ChangeGround()
+    private void ChangeGround(int maxLevel)
     {
-        // Si le Tilemap et les Tiles ne sont pas définis, on quitte la fonction
         if (groundTilemap == null || groundTiles == null || groundTiles.Length == 0)
         {
             Debug.LogError("Tilemap ou Tiles non définis !");
             return;
         }
 
-        // Pour chaque cellule dans le Tilemap, on change le Tile
         BoundsInt bounds = groundTilemap.cellBounds;
-        TileBase[] allTiles = groundTilemap.GetTilesBlock(bounds);
 
         foreach (var position in bounds.allPositionsWithin)
         {
             if (groundTilemap.HasTile(position))
             {
-                groundTilemap.SetTile(position, GetCurrentTile());
+                groundTilemap.SetTile(position, GetCurrentTile(maxLevel));
             }
         }
-
-        // Passer au prochain Tile dans le tableau
-        currentTileIndex = (currentTileIndex + 1) % groundTiles.Length;
     }
 
-    // Fonction pour obtenir le Tile courant dans le tableau
-    private TileBase GetCurrentTile()
+    private TileBase GetCurrentTile(int maxLevel)
     {
-        return groundTiles[currentTileIndex];
+        return groundTiles[maxLevel];
     }
 
-    // Fonction pour changer le sprite de la base du joueur
-    private void ChangePlayerBase()
+    private void ChangePlayerBase(int maxLevel, int playerLevel)
     {
-        if (player1BaseRenderer != null && playerBases.Count > 0)
+        if (player1BaseRenderer != null && player2BaseRenderer != null && playerBases.Count > 0)
         {
-            player1BaseRenderer.sprite = playerBases[currentIndex];
+            player1BaseRenderer.sprite = playerBases[playerLevel - 1];
+            player2BaseRenderer.sprite = playerBases[Player2Level - 1];
         }
         else
         {
             Debug.LogWarning("Le sprite renderer de la base du joueur ou la liste de sprites de base du joueur n'est pas correctement définie.");
         }
+    }
+
+
+    public Color DeterminePlayerColor(int maxLevel, int playerLevel)
+    {
+        int colorIndex = Mathf.Clamp(playerLevel - 1, 0, playerColors.Count - 1);
+        return playerColors[colorIndex];
     }
 }

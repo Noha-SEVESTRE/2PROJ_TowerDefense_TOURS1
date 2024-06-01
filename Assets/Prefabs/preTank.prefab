@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3141950439651903843}
   - component: {fileID: 3877760119133371846}
   m_Layer: 0
-  m_Name: allySprite
+  m_Name: tankSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 31faa07de472df044b5f7b7adf1d7488, type: 3}
-  m_Color: {r: 0, g: 0.9811321, b: 0.96751887, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -209,6 +209,7 @@ MonoBehaviour:
   maxHealth: 150
   TankRb: {fileID: 1998354532280197860}
   speed: 1
+  cooldown: 4
   cost: 400
   damageInterval: 1.5
 --- !u!114 &2217790128787997309

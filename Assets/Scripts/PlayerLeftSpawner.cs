@@ -56,13 +56,36 @@ public class PlayerLeftSpawner : MonoBehaviour
         }
 
         GameObject spawnedUnit = Instantiate(unit, spawnPoint.position, Quaternion.identity);
-        spawnedUnit.tag = spawnPoint.tag;
+        spawnedUnit.tag = spawnPoint.tag; // Utiliser le tag du spawn point
+
+        // Trouver le SpriteRenderer dans le prefab de l'unité
+        SpriteRenderer unitSpriteRenderer = spawnedUnit.GetComponentInChildren<SpriteRenderer>();
+        if (unitSpriteRenderer != null)
+        {
+            // Déterminer la couleur en fonction du niveau du joueur 1
+            Evolution evolutionScript = FindObjectOfType<Evolution>();
+            if (evolutionScript != null)
+            {
+                unitSpriteRenderer.color = evolutionScript.DeterminePlayerColor(evolutionScript.Player1Level, evolutionScript.Player1Level);
+            }
+            else
+            {
+                Debug.LogWarning("Le script Evolution n'a pas été trouvé.");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Le SpriteRenderer n'a pas été trouvé dans le prefab de l'unité.");
+        }
+
         canSpawn = false;
         meleeButton.interactable = false;
         archerButton.interactable = false;
         antiArmorButton.interactable = false;
         tankButton.interactable = false;
     }
+
+
 
     public void SpawnMelee()
     {
