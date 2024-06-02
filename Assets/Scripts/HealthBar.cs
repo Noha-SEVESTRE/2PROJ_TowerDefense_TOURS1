@@ -19,7 +19,7 @@ public class HealthBar : MonoBehaviour
         }
     }
 
-    public void UpdateHealth(int damage)
+    public void UpdateHealth(float damage)
     {
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, GetComponent<IDamageable>().MaxHealth); 

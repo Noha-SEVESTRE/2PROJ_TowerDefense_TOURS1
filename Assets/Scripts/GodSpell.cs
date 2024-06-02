@@ -42,21 +42,38 @@ public class GodSpell : MonoBehaviour
 
             if (!string.IsNullOrEmpty(projectileTag))
             {
-                meteorite.tag = projectileTag; 
+                meteorite.tag = projectileTag;
 
-                if (evolutionScript != null)
+                if (evolutionScript != null && projectileTag == "Player1")
+                {
+                    Meteorite meteoriteComponent = meteorite.GetComponent<Meteorite>();
+                    if (meteoriteComponent != null)
+                    {
+                        // Mise à jour des dégâts des météorites
+                        meteoriteComponent.UpdateDamage(evolutionScript.Player1Level);
+
+                        // Affichage des dégâts dans la console
+                        Debug.Log("Dégâts de la météorite : " + meteoriteComponent.GetDamage());
+                    }
+
+                    SpriteRenderer meteoriteSpriteRenderer = meteorite.GetComponent<SpriteRenderer>();
+                    if (meteoriteSpriteRenderer != null)
+                    {
+                        // Mise à jour de la couleur des météorites en fonction du niveau d'évolution du joueur 1
+                        meteoriteSpriteRenderer.color = evolutionScript.DeterminePlayerColor(evolutionScript.Player1Level, evolutionScript.Player1Level);
+                    }
+                    else
+                    {
+                        Debug.LogWarning("Le SpriteRenderer n'a pas été trouvé sur la météorite instanciée.");
+                    }
+                }
+                else if (evolutionScript != null && projectileTag == "Player2")
                 {
                     SpriteRenderer meteoriteSpriteRenderer = meteorite.GetComponent<SpriteRenderer>();
                     if (meteoriteSpriteRenderer != null)
                     {
-                        if (projectileTag == "Player1")
-                        {
-                            meteoriteSpriteRenderer.color = evolutionScript.DeterminePlayerColor(evolutionScript.Player1Level, evolutionScript.Player1Level);
-                        }
-                        else if (projectileTag == "Player2")
-                        {
-                            meteoriteSpriteRenderer.color = evolutionScript.DeterminePlayerColor(evolutionScript.Player2Level, evolutionScript.Player2Level);
-                        }
+                        // Mise à jour de la couleur des météorites en fonction du niveau d'évolution du joueur 2
+                        meteoriteSpriteRenderer.color = evolutionScript.DeterminePlayerColor(evolutionScript.Player2Level, evolutionScript.Player2Level);
                     }
                     else
                     {
@@ -76,6 +93,8 @@ public class GodSpell : MonoBehaviour
             yield return new WaitForSeconds(spawnInterval);
         }
     }
+
+
 
     public void ActivateGodSpell(bool isPlayerSpell)
     {

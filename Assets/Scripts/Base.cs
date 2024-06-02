@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Base : MonoBehaviour, IDamageable
 {
-    public int maxHealth = 500;
-    public int MaxHealth => maxHealth;
+    public float maxHealth = 500;
+    public float MaxHealth => maxHealth;
 
     public GameObject gameOverPanel;
 

@@ -9,8 +9,9 @@ public class Archer : MonoBehaviour, IDamageable
     private float timer;
     public Rigidbody2D ArcherRb;
     public float speed;
-    public int maxHealth = 75;
-    public int MaxHealth => maxHealth;
+    public float maxHealth = 75;
+    public float MaxHealth => maxHealth;
+    public float damage = 15;
     public int cost = 125;
 
     public float cooldown = 1.5f;
@@ -89,6 +90,7 @@ public class Archer : MonoBehaviour, IDamageable
             if (arrowScript != null)
             {
                 arrowScript.shooterTag = gameObject.tag;
+                arrowScript.damage = damage;
             }
 
             timer = coolDown;

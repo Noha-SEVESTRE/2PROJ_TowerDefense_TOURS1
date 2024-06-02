@@ -12,8 +12,8 @@ public class Turret : MonoBehaviour
     public Transform firePoint;
     public float attackSpeed;
 
-    public int minDamage; 
-    public int maxDamage; 
+    public float minDamage; 
+    public float maxDamage; 
 
     public int price;
 
@@ -78,7 +78,7 @@ public class Turret : MonoBehaviour
 
     void Shoot()
     {
-        int damage = Random.Range(minDamage, maxDamage + 1);
+        float damage = Random.Range(minDamage, maxDamage + 1);
         GameObject newProjectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
         Projectile projectile = newProjectile.GetComponent<Projectile>();
         if (projectile != null)

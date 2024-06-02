@@ -60,6 +60,15 @@ public class TurretPlacement : MonoBehaviour
 
         turret = (GameObject)Instantiate(turretToBuild, transform.position, transform.rotation);
         turret.tag = "TurretPlayer1";
+
+        // Mise à jour des dégâts de la tourelle
+        float newMinDamage = turretComponent.minDamage;
+        float newMaxDamage = turretComponent.maxDamage;
+        UpgradeTurretDamage(turret.GetComponent<Turret>(), evolutionScript.GetPlayer1Level(), ref newMinDamage, ref newMaxDamage);
+
+        // Affichage des dégâts de la tourelle
+        Debug.Log("Turret Damage - Min: " + newMinDamage + ", Max: " + newMaxDamage);
+
         if (evolutionScript != null)
         {
             SpriteRenderer turretSpriteRenderer = turret.GetComponent<SpriteRenderer>();
@@ -81,4 +90,15 @@ public class TurretPlacement : MonoBehaviour
 
         turretBuildManager.SetTurretToBuild(null);
     }
+
+    private void UpgradeTurretDamage(Turret turret, int player1Level, ref float minDamage, ref float maxDamage)
+    {
+        if (player1Level >= 2)
+        {
+            float multiplier = Mathf.Pow(1.5f, player1Level - 1);
+            minDamage *= multiplier;
+            maxDamage *= multiplier;
+        }
+    }
+
 }

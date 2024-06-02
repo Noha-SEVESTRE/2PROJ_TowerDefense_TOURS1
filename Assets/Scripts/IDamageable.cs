@@ -1,4 +1,4 @@
 public interface IDamageable
 {
-    int MaxHealth { get; }
+    float MaxHealth { get; }
 }

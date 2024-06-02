@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class TurretSlotBuying : MonoBehaviour
 {
     public GameObject[] turretPositions;
     public int[] turretPrices;
     private int currentIndex = 0;
+    public TMP_Text priceText;
 
     public void ActivateNextTurretPosition()
     {
@@ -28,6 +30,18 @@ public class TurretSlotBuying : MonoBehaviour
         else
         {
             Debug.LogWarning("Indice d'emplacement de tourelle non valide !");
+        }
+    }
+
+    private void Update()
+    {
+        if (currentIndex < turretPrices.Length)
+        {
+            priceText.text = "Buy Slot " + turretPrices[currentIndex].ToString(); // Met à jour le texte avec le prix actuel
+        }
+        else
+        {
+            priceText.text = "-";
         }
     }
 }

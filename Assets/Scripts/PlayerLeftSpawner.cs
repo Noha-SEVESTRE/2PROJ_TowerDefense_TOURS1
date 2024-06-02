@@ -48,43 +48,124 @@ public class PlayerLeftSpawner : MonoBehaviour
     }
 
     private void SpawnUnit(GameObject unit)
+{
+    if (!CanSpawnUnit())
     {
-        if (!CanSpawnUnit())
+        Debug.Log("Impossible de faire spawn une unité, le nombre maximum d'unités sur le terrain est atteint.");
+        return;
+    }
+
+    GameObject spawnedUnit = Instantiate(unit, spawnPoint.position, Quaternion.identity);
+    spawnedUnit.tag = spawnPoint.tag; // Utiliser le tag du spawn point
+
+    // Trouver le SpriteRenderer dans le prefab de l'unité
+    SpriteRenderer unitSpriteRenderer = spawnedUnit.GetComponentInChildren<SpriteRenderer>();
+    if (unitSpriteRenderer != null)
+    {
+        // Déterminer la couleur en fonction du niveau du joueur 1
+        Evolution evolutionScript = FindObjectOfType<Evolution>();
+        if (evolutionScript != null)
         {
-            Debug.Log("Impossible de faire spawn une unité, le nombre maximum d'unités sur le terrain est atteint.");
-            return;
+            unitSpriteRenderer.color = evolutionScript.DeterminePlayerColor(evolutionScript.Player1Level, evolutionScript.Player1Level);
         }
-
-        GameObject spawnedUnit = Instantiate(unit, spawnPoint.position, Quaternion.identity);
-        spawnedUnit.tag = spawnPoint.tag; // Utiliser le tag du spawn point
-
-        // Trouver le SpriteRenderer dans le prefab de l'unité
-        SpriteRenderer unitSpriteRenderer = spawnedUnit.GetComponentInChildren<SpriteRenderer>();
-        if (unitSpriteRenderer != null)
+        else
         {
-            // Déterminer la couleur en fonction du niveau du joueur 1
-            Evolution evolutionScript = FindObjectOfType<Evolution>();
-            if (evolutionScript != null)
+            Debug.LogWarning("Le script Evolution n'a pas été trouvé.");
+        }
+    }
+    else
+    {
+        Debug.LogWarning("Le SpriteRenderer n'a pas été trouvé dans le prefab de l'unité.");
+    }
+
+    // Upgrader les statistiques de l'unité en fonction du niveau du joueur 1 et du type d'unité
+    UpgradeStats(spawnedUnit);
+
+    // Debug.Log des statistiques maxHealth et damage de l'unité qui vient d'être spawnée
+    Debug.Log("Stats de l'unité spawnée - Max Health: " + spawnedUnit.GetComponent<IDamageable>().MaxHealth);
+
+    canSpawn = false;
+    meleeButton.interactable = false;
+    archerButton.interactable = false;
+    antiArmorButton.interactable = false;
+    tankButton.interactable = false;
+}
+
+    private void UpgradeStats(GameObject unit)
+    {
+        // Récupérer le niveau du joueur 1
+        Evolution evolutionScript = FindObjectOfType<Evolution>();
+        if (evolutionScript != null)
+        {
+            int player1Level = evolutionScript.GetPlayer1Level();
+
+            // Augmenter maxHealth et damage en fonction du niveau du joueur 1 et du type d'unité
+            if (unit.GetComponent<Melee>() != null)
             {
-                unitSpriteRenderer.color = evolutionScript.DeterminePlayerColor(evolutionScript.Player1Level, evolutionScript.Player1Level);
+                UpgradeMeleeStats(unit.GetComponent<Melee>(), player1Level);
             }
-            else
+            else if (unit.GetComponent<Archer>() != null)
             {
-                Debug.LogWarning("Le script Evolution n'a pas été trouvé.");
+                UpgradeArcherStats(unit.GetComponent<Archer>(), player1Level);
+            }
+            else if (unit.GetComponent<AntiArmor>() != null)
+            {
+                UpgradeAntiArmorStats(unit.GetComponent<AntiArmor>(), player1Level);
+            }
+            else if (unit.GetComponent<Tank>() != null)
+            {
+                UpgradeTankStats(unit.GetComponent<Tank>(), player1Level);
             }
         }
         else
         {
-            Debug.LogWarning("Le SpriteRenderer n'a pas été trouvé dans le prefab de l'unité.");
+            Debug.LogWarning("Le script Evolution n'a pas été trouvé.");
         }
-
-        canSpawn = false;
-        meleeButton.interactable = false;
-        archerButton.interactable = false;
-        antiArmorButton.interactable = false;
-        tankButton.interactable = false;
     }
 
+    private void UpgradeMeleeStats(Melee melee, int player1Level)
+    {
+        // Upgrader les statistiques de l'unité Melee en fonction du niveau du joueur 1
+        if (player1Level >= 2)
+        {
+            float multiplier = Mathf.Pow(1.5f, player1Level - 1); // Calculer le multiplicateur en fonction du niveau du joueur
+            melee.maxHealth = Mathf.RoundToInt(melee.maxHealth * multiplier * 10) / 10f; // Arrondir au dixième près
+            melee.damage = Mathf.RoundToInt(melee.damage * multiplier * 10) / 10f; // Arrondir au dixième près
+        }
+    }
+
+    private void UpgradeArcherStats(Archer archer, int player1Level)
+    {
+        // Upgrader les statistiques de l'unité Archer en fonction du niveau du joueur 1
+        if (player1Level >= 2)
+        {
+            float multiplier = Mathf.Pow(1.5f, player1Level - 1); // Calculer le multiplicateur en fonction du niveau du joueur
+            archer.maxHealth = Mathf.RoundToInt(archer.maxHealth * multiplier * 10) / 10f; // Arrondir au dixième près
+            archer.damage = Mathf.RoundToInt(archer.damage * multiplier * 10) / 10f; // Arrondir au dixième près
+        }
+    }
+
+    private void UpgradeAntiArmorStats(AntiArmor antiArmor, int player1Level)
+    {
+        // Upgrader les statistiques de l'unité AntiArmor en fonction du niveau du joueur 1
+        if (player1Level >= 2)
+        {
+            float multiplier = Mathf.Pow(1.5f, player1Level - 1); // Calculer le multiplicateur en fonction du niveau du joueur
+            antiArmor.maxHealth = Mathf.RoundToInt(antiArmor.maxHealth * multiplier * 10) / 10f; // Arrondir au dixième près
+            antiArmor.damage = Mathf.RoundToInt(antiArmor.damage * multiplier * 10) / 10f; // Arrondir au dixième près
+        }
+    }
+
+    private void UpgradeTankStats(Tank tank, int player1Level)
+    {
+        // Upgrader les statistiques de l'unité Tank en fonction du niveau du joueur 1
+        if (player1Level >= 2)
+        {
+            float multiplier = Mathf.Pow(1.5f, player1Level - 1); // Calculer le multiplicateur en fonction du niveau du joueur
+            tank.maxHealth = Mathf.RoundToInt(tank.maxHealth * multiplier * 10) / 10f; // Arrondir au dixième près
+            tank.damage = Mathf.RoundToInt(tank.damage * multiplier * 10) / 10f; // Arrondir au dixième près
+        }
+    }
 
 
     public void SpawnMelee()

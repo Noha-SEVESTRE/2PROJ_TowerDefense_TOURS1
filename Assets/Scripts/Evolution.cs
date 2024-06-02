@@ -29,6 +29,11 @@ public class Evolution : MonoBehaviour
     public int Player1Level = 1; 
     public int Player2Level = 1; 
 
+    public int GetPlayer1Level()
+    {
+        return Player1Level;
+    }
+
     public void Player1Evolve()
     {
         if (Player1Level < 7)
