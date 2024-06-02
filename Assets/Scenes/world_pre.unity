@@ -5512,6 +5512,7 @@ GameObject:
   - component: {fileID: 965276938}
   - component: {fileID: 965276939}
   - component: {fileID: 965276940}
+  - component: {fileID: 965276941}
   m_Layer: 5
   m_Name: ButtonCanvas
   m_TagString: Untagged
@@ -5758,6 +5759,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedText: {fileID: 788647570}
+--- !u!114 &965276941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965276927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7d6eddff13be6947890a25016a50a73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyText: {fileID: 2087706351}
+  expText: {fileID: 806283133}
 --- !u!1 &1032708133
 GameObject:
   m_ObjectHideFlags: 0

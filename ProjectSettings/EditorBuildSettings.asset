@@ -29,4 +29,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/world_fut.unity
     guid: 50553e96e8b52e34f8a52d58d40ba911
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: a7836349b3128094eb9be88c6c53f2f0, type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: cb206d5d14b24fe4cb97723257753bc6, type: 2}

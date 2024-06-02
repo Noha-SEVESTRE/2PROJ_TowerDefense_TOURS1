@@ -1,0 +1,128 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: String Table_de
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: de
+  m_SharedData: {fileID: 11400000, guid: b562bf63be9b6d043a67f828e3ab8d96, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 23323627520
+    m_Localized: 'Regeln von Age of War :'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1558661189632
+    m_Localized: "1. Jeder Spieler kontrolliert eine Armee, die er durch verschiedene
+      Zeitalter entwickeln muss, von pr\xE4historisch bis futuristisch.\n\n2. Die
+      Spieler k\xF6nnen Einheiten generieren und T\xFCrme bauen, um ihre Basis zu
+      verteidigen und die Basis des Gegners anzugreifen.\n\n3. Das Ziel ist es, die
+      gegnerische Basis zu zerst\xF6ren und gleichzeitig die eigene zu sch\xFCtzen.\n\n4.
+      Durch das T\xF6ten von gegnerischen Einheiten erhalten die Spieler Erfahrungspunkte
+      (XP), mit denen sie sich zum n\xE4chsten Zeitalter weiterentwickeln k\xF6nnen.\n\n5.
+      Wenn sich die Spieler weiterentwickeln, schalten sie neue Einheiten und Gesch\xFCtzt\xFCrme
+      frei, die noch st\xE4rker sind.\n\n6. Ressourcenmanagement und strategische
+      Planung sind der Schl\xFCssel zum Sieg."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1838442237952
+    m_Localized: SPIELEN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2046270001152
+    m_Localized: SGS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2335639228416
+    m_Localized: REGELN
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2583044444160
+    m_Localized: LEAVE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2844613824512
+    m_Localized: EASY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3018526445568
+    m_Localized: NORMAL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3234642153472
+    m_Localized: HARD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3571738365952
+    m_Localized: HELL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3987632967680
+    m_Localized: Nahkampf 100G
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4752988590080
+    m_Localized: AntiPanzerung 200G
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5055360159744
+    m_Localized: "Bogensch\xFCtze 125G"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5553425371136
+    m_Localized: Tank 400G
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5946838503424
+    m_Localized: "T\xFCrmchen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6216846823424
+    m_Localized: Entwickeln Sie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6411558998016
+    m_Localized: Pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6642216357888
+    m_Localized: Neustart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6835133370368
+    m_Localized: "Hauptmen\xFC"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7196724318208
+    m_Localized: Klein 750G
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7415578906624
+    m_Localized: Mittel 1500G
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8157857468416
+    m_Localized: "Gro\xDF 2300G"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8815205568512
+    m_Localized: Verkaufen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9112413949952
+    m_Localized: Reprendre
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

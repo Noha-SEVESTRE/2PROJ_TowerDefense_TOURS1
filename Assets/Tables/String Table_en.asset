@@ -1,0 +1,141 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: String Table_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: b562bf63be9b6d043a67f828e3ab8d96, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 23323627520
+    m_Localized: "Rules of Age of War :\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1558661189632
+    m_Localized: '1. Each player controls an army that they must evolve through different
+      ages, from prehistoric to futuristic.
+
+
+      2. Players can generate units
+      and build turrets to defend their base and attack the enemy''s base.
+
+
+      3.
+      The goal is to destroy the enemy''s base while protecting your own.
+
+
+      4.
+      Players earn experience points (XP) by killing enemy units, which can be used
+      to evolve to the next age.
+
+
+      5. As players evolve, they unlock new units
+      and turrets that are more powerful.
+
+
+      6. Managing resources and strategic
+      planning are key to victory.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1838442237952
+    m_Localized: PLAY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2046270001152
+    m_Localized: PVP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2335639228416
+    m_Localized: RULES
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2583044444160
+    m_Localized: QUIT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2844613824512
+    m_Localized: EASY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3018526445568
+    m_Localized: NORMAL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3234642153472
+    m_Localized: HARD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3571738365952
+    m_Localized: HELL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3987632967680
+    m_Localized: Melee 100G
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4752988590080
+    m_Localized: AntiArmor 200G
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5055360159744
+    m_Localized: Archer 125G
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5553425371136
+    m_Localized: Tank 400G
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5946838503424
+    m_Localized: Turrets
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6216846823424
+    m_Localized: Evolve
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6411558998016
+    m_Localized: Pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6642216357888
+    m_Localized: Restart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6835133370368
+    m_Localized: Main Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7196724318208
+    m_Localized: Small 750G
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7415578906624
+    m_Localized: Medium 1500G
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8157857468416
+    m_Localized: Big 2300G
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8815205568512
+    m_Localized: Sell
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9112413949952
+    m_Localized: Resume
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

@@ -1,0 +1,128 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: String Table_fr
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: fr
+  m_SharedData: {fileID: 11400000, guid: b562bf63be9b6d043a67f828e3ab8d96, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 23323627520
+    m_Localized: "R\xE8gles de Age of War :"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1558661189632
+    m_Localized: "1. Chaque joueur contr\xF4le une arm\xE9e qu'il doit faire \xE9voluer
+      \xE0 travers diff\xE9rentes \xE9poques, de la pr\xE9histoire au futurisme.\n\n2.
+      Les joueurs peuvent g\xE9n\xE9rer des unit\xE9s et construire des tourelles
+      pour d\xE9fendre leur base et attaquer celle de l'ennemi.\n\n3. Le but est
+      de d\xE9truire la base ennemie tout en prot\xE9geant la sienne.\n\n4. Les joueurs
+      gagnent des points d'exp\xE9rience (XP) en tuant des unit\xE9s ennemies, qui
+      peuvent \xEAtre utilis\xE9s pour \xE9voluer vers l'\xE2ge suivant.\n\n5. En
+      \xE9voluant, les joueurs d\xE9bloquent de nouvelles unit\xE9s et tourelles
+      plus puissantes.\n\n6. La gestion des ressources et la planification strat\xE9gique
+      sont les cl\xE9s de la victoire."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1838442237952
+    m_Localized: JOUER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2046270001152
+    m_Localized: JCJ
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2335639228416
+    m_Localized: REGLES
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2583044444160
+    m_Localized: QUITTER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2844613824512
+    m_Localized: FACILE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3018526445568
+    m_Localized: NORMAL
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3234642153472
+    m_Localized: DIFFICILE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3571738365952
+    m_Localized: ENFER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3987632967680
+    m_Localized: "M\xEAl\xE9e 100G"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4752988590080
+    m_Localized: AntiArmure 200G
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5055360159744
+    m_Localized: Archer 125G
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5553425371136
+    m_Localized: Tank 400G
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5946838503424
+    m_Localized: Tourelles
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6216846823424
+    m_Localized: Evoluer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6411558998016
+    m_Localized: Pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6642216357888
+    m_Localized: Recommencer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6835133370368
+    m_Localized: Menu principal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7196724318208
+    m_Localized: Petite 750G
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7415578906624
+    m_Localized: Moyenne 1500G
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8157857468416
+    m_Localized: Grande 2300G
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8815205568512
+    m_Localized: Vendre
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9112413949952
+    m_Localized: Reprendre
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: String Table Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: String Table
+  m_TableCollectionNameGuidString: b562bf63be9b6d043a67f828e3ab8d96
+  m_Entries:
+  - m_Id: 23323627520
+    m_Key: RulesTitleText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1558661189632
+    m_Key: Rules Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1838442237952
+    m_Key: Play Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2046270001152
+    m_Key: Multiplayer Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2335639228416
+    m_Key: RulesButton Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2583044444160
+    m_Key: Quit Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2844613824512
+    m_Key: Easy Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3018526445568
+    m_Key: Normal Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3234642153472
+    m_Key: Hard Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3571738365952
+    m_Key: Hell Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3987632967680
+    m_Key: Melee Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4752988590080
+    m_Key: AntiArmor Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5055360159744
+    m_Key: Archer Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5553425371136
+    m_Key: Tank Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5946838503424
+    m_Key: Turrets Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6216846823424
+    m_Key: Evolve Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6411558998016
+    m_Key: Pause Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6642216357888
+    m_Key: Restart Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6835133370368
+    m_Key: MainMenu Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7196724318208
+    m_Key: Small Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7415578906624
+    m_Key: Medium Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8157857468416
+    m_Key: Big Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8815205568512
+    m_Key: Sell Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9112413949952
+    m_Key: Resume Text
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 6729774284890963992
+  references:
+    version: 2
+    RefIds:
+    - rid: 6729774284890963992
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1717349742734
