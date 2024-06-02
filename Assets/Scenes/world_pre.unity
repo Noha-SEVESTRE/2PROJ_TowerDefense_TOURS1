@@ -4854,7 +4854,6 @@ GameObject:
   - component: {fileID: 806283131}
   - component: {fileID: 806283134}
   - component: {fileID: 806283133}
-  - component: {fileID: 806283132}
   m_Layer: 5
   m_Name: EXP
   m_TagString: Untagged
@@ -4881,18 +4880,6 @@ RectTransform:
   m_AnchoredPosition: {x: -844.07104, y: -295.15186}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &806283132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 806283130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ea9283c53db55544a55361200992599, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &806283133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11667,7 +11654,6 @@ GameObject:
   - component: {fileID: 2087706349}
   - component: {fileID: 2087706352}
   - component: {fileID: 2087706351}
-  - component: {fileID: 2087706350}
   m_Layer: 5
   m_Name: Money
   m_TagString: Untagged
@@ -11694,18 +11680,6 @@ RectTransform:
   m_AnchoredPosition: {x: -844.07104, y: -255.15186}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2087706350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2087706348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ee45268904548040a23eab0f7518afb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2087706351
 MonoBehaviour:
   m_ObjectHideFlags: 0
