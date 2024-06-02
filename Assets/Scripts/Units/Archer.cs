@@ -85,7 +85,6 @@ public class Archer : MonoBehaviour, IDamageable
 
             GameObject arrow = Instantiate(ArrowPrefab, spawnPosition, Quaternion.identity);
             
-            // Définir le tag du tireur de la flèche
             Arrow arrowScript = arrow.GetComponent<Arrow>();
             if (arrowScript != null)
             {
