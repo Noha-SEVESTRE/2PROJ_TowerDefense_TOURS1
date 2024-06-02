@@ -6,8 +6,17 @@ using UnityEngine.Tilemaps;
 public class Evolution : MonoBehaviour
 {
     public List<Sprite> backgrounds = new List<Sprite>(); 
-    public List<Color> playerColors = new List<Color>(); 
-
+    private List<Color> playerColors = new List<Color>()
+    {
+        Color.red,
+        Color.blue,
+        Color.green,
+        Color.yellow,
+        Color.cyan,
+        Color.magenta,
+        Color.white
+    };
+    
     public SpriteRenderer backgroundRenderer; 
     public Tilemap groundTilemap; 
 
