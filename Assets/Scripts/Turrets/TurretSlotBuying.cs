@@ -37,7 +37,7 @@ public class TurretSlotBuying : MonoBehaviour
     {
         if (currentIndex < turretPrices.Length)
         {
-            priceText.text = "Buy Slot " + turretPrices[currentIndex].ToString(); // Met à jour le texte avec le prix actuel
+            priceText.text = "Buy Slot " + turretPrices[currentIndex].ToString(); 
         }
         else
         {

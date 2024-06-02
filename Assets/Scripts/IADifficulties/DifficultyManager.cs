@@ -39,7 +39,6 @@ public class DifficultyManager : MonoBehaviour
         }
     }
 
-    // Méthode pour désactiver le GameObject de l'IA actif
     public void DeactivateActiveAI()
     {
         if (activeAI != null)
