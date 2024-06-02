@@ -4,58 +4,52 @@ using UnityEngine.UI;
 
 public class PauseManagement : MonoBehaviour
 {
-    public GameObject pausePanel; // Référence au panel de pause
-
+    public GameObject pausePanel;
     private bool isPaused = false;
-    private float savedTimeScale; // Pour sauvegarder la vitesse du jeu avant la pause
+    private float savedTimeScale;
 
     void Start()
     {
-        pausePanel.SetActive(false); // Assurez-vous que le panel de pause est désactivé au démarrage
+        pausePanel.SetActive(false);
     }
 
-    // Fonction appelée lors du clic sur le bouton Pause
     public void TogglePause()
     {
-        isPaused = !isPaused; // Inverse l'état de pause
+        isPaused = !isPaused;
         if (isPaused)
         {
-            savedTimeScale = Time.timeScale; // Sauvegarde la vitesse du jeu avant la pause
-            Time.timeScale = 0f; // Freeze la scène
-            pausePanel.SetActive(true); // Affiche le panel de pause
+            savedTimeScale = Time.timeScale;
+            Time.timeScale = 0f;
+            pausePanel.SetActive(true);
         }
         else
         {
-            Time.timeScale = savedTimeScale; // Restaure la vitesse du jeu avant la pause
-            pausePanel.SetActive(false); // Cache le panel de pause
+            Time.timeScale = savedTimeScale;
+            pausePanel.SetActive(false);
         }
     }
 
-    // Fonction appelée lors du clic sur le bouton Resume
     public void ResumeGame()
     {
         isPaused = false;
-        Time.timeScale = savedTimeScale; // Restaure la vitesse du jeu avant la pause
-        pausePanel.SetActive(false); // Cache le panel de pause
+        Time.timeScale = savedTimeScale;
+        pausePanel.SetActive(false);
     }
 
-    // Fonction appelée lors du clic sur le bouton Restart
     public void RestartGame()
     {
-        Time.timeScale = 1f; // Assurez-vous que le temps est dégelé
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // Recharge la scène actuelle pour recommencer à zéro
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    // Fonction appelée lors du clic sur le bouton MainMenu
     public void MainMenu()
     {
-        Time.timeScale = 1f; // Assurez-vous que le temps est dégelé
-        SceneManager.LoadScene(0); // Charge la scène 0 pour le menu principal
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(0);
     }
 
-    // Fonction appelée lors du clic sur le bouton Quit
     public void QuitGame()
     {
-        Application.Quit(); // Ferme le jeu
+        Application.Quit();
     }
 }

@@ -26,7 +26,6 @@ public class GodSpell : MonoBehaviour
     {
         yield return new WaitForSeconds(spawnCooldown);
         canSpawn = true;
-        // Réactivez le bouton après le cooldown
         godSpellButton.interactable = true;
     }
 
@@ -49,17 +48,14 @@ public class GodSpell : MonoBehaviour
                     Meteorite meteoriteComponent = meteorite.GetComponent<Meteorite>();
                     if (meteoriteComponent != null)
                     {
-                        // Mise à jour des dégâts des météorites
                         meteoriteComponent.UpdateDamage(evolutionScript.Player1Level);
 
-                        // Affichage des dégâts dans la console
                         Debug.Log("Dégâts de la météorite : " + meteoriteComponent.GetDamage());
                     }
 
                     SpriteRenderer meteoriteSpriteRenderer = meteorite.GetComponent<SpriteRenderer>();
                     if (meteoriteSpriteRenderer != null)
                     {
-                        // Mise à jour de la couleur des météorites en fonction du niveau d'évolution du joueur 1
                         meteoriteSpriteRenderer.color = evolutionScript.DeterminePlayerColor(evolutionScript.Player1Level, evolutionScript.Player1Level);
                     }
                     else
@@ -72,7 +68,6 @@ public class GodSpell : MonoBehaviour
                     SpriteRenderer meteoriteSpriteRenderer = meteorite.GetComponent<SpriteRenderer>();
                     if (meteoriteSpriteRenderer != null)
                     {
-                        // Mise à jour de la couleur des météorites en fonction du niveau d'évolution du joueur 2
                         meteoriteSpriteRenderer.color = evolutionScript.DeterminePlayerColor(evolutionScript.Player2Level, evolutionScript.Player2Level);
                     }
                     else

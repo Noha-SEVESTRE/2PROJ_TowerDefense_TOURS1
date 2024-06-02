@@ -29,6 +29,8 @@ public class Evolution : MonoBehaviour
     public int Player1Level = 1; 
     public int Player2Level = 1; 
 
+    public int price = 5000;
+
     public int GetPlayer1Level()
     {
         return Player1Level;
@@ -36,10 +38,15 @@ public class Evolution : MonoBehaviour
 
     public void Player1Evolve()
     {
-        if (Player1Level < 7)
+        if (PlayerStats.exp >= price)
         {
-            Player1Level += 1;
-            UpdateGraphics();
+            if (Player1Level < 7)
+            {
+                Player1Level += 1;
+                UpdateGraphics();
+                
+                PlayerStats.exp -= price;
+            }
         }
     }
 
