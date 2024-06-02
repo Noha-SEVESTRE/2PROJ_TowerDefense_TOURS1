@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Melee : MonoBehaviour, IDamageable
 {
-    public int damage = 25;
-    public int maxHealth = 200;
-    public int MaxHealth => maxHealth;
+    public float damage = 25;
+    public float maxHealth = 200;
+    public float MaxHealth => maxHealth;
     public Rigidbody2D MeleeRb;
     public float speed;
     public float cooldown = 1f;

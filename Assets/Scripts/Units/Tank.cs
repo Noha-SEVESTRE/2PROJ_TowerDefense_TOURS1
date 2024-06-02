@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Tank : MonoBehaviour, IDamageable
 {
-    public int damage = 20;
-    public int maxHealth = 400;
-    public int MaxHealth => maxHealth;
+    public float damage = 20;
+    public float maxHealth = 400;
+    public float MaxHealth => maxHealth;
     public Rigidbody2D TankRb;
     public float speed;
     public float cooldown = 4f;

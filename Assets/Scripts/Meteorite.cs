@@ -2,9 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Meteorite : MonoBehaviour {
+public class Meteorite : MonoBehaviour
+{
+    public int baseDamage = 50; // Dégâts de base des météorites
 
-    public int damage = 50;
+    private int damage; // Dégâts actuels des météorites
+
+    private void Start()
+    {
+        damage = baseDamage;
+    }
+
+    public int GetDamage()
+    {
+        return damage;
+    }
+
+    // Méthode pour mettre à jour les dégâts des météorites lors de l'activation du sort de Dieu
+    public void UpdateDamage(int player1Level)
+    {
+        float multiplier = Mathf.Pow(1.5f, player1Level - 1);
+        damage = Mathf.RoundToInt(baseDamage * multiplier);
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

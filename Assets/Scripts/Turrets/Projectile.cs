@@ -4,7 +4,7 @@ public class Projectile : MonoBehaviour
 {
     private Transform target;
     public float speed = 15f;
-    private int damage;
+    private float damage;
     public string shooterTag;
 
     void Update()
@@ -66,7 +66,7 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    public void SetDamage(int damageValue)
+    public void SetDamage(float damageValue)
     {
         damage = damageValue;
     }

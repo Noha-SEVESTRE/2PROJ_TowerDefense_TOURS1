@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class AntiArmor : MonoBehaviour, IDamageable
 {
-    public int damage = 40;
-    public int maxHealth = 100;
-    public int MaxHealth => maxHealth;
+    public float damage = 40;
+    public float maxHealth = 100;
+    public float MaxHealth => maxHealth;
     public Rigidbody2D AntiArmorRb;
     public float speed;
     public float cooldown = 2.5f;
