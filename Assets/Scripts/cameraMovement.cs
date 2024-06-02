@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ScrollWithMouse : MonoBehaviour
 {
-    public float scrollSpeed = 0.01f; 
+    public float scrollSpeed = 0.03f; 
     public float scrollThreshold = 0.05f; 
     public float minX = -9; 
     public float maxX = 9; 
